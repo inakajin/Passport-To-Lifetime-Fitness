@@ -24,6 +24,15 @@
                 <strong>lastname</strong>: <%= user.lastname %><br>
             </p>
         <% } %>
+
+        <% if (visits) { %>
+            <% for(var i=0; i < visits.length; i++) { %>
+                <tr>
+                  <td><%= visits[i].date %></td>
+                  <td><%= visits[i].activitylist %></td>
+                </tr>
+             <% } %>
+        <% } %>
         <!-- LOCAL INFORMATION -->
         <div class="col-sm-6">
             <div class="well">

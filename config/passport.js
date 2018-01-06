@@ -72,12 +72,14 @@ module.exports = function(passport) {
         // by default, local strategy uses username and password, we will override with email
         usernameField : 'email',
         passwordField : 'password',
+    //    adminField : 'admin',
         passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
     },
     function(req, email, password, done) {
         if (email)
             email = email.toLowerCase(); // Use lower-case e-mails to avoid case-sensitive e-mail matching
-
+      //      console.log(req.body, admin);
+            console.log("watermelon");
         // asynchronous
         process.nextTick(function() {
             // if the user is not already logged in:
@@ -94,7 +96,7 @@ module.exports = function(passport) {
 
                         // create the user
                         var newUser            = new User();
-
+                        console.log(req.body);
                         newUser.local.email    = email;
                         newUser.local.password = newUser.generateHash(password);
 

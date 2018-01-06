@@ -34,7 +34,8 @@
                 <option value="School D">School D</option>
                 <option value="School E">School E</option>
         </select>
-        
+        <br>
+        <br>
         Please select the activity you participated in today: 
             <label>
                 <input type="radio" name="activitylist" value="basketball"/>Basketball
@@ -46,12 +47,12 @@
                 <input type="radio" name="activitylist" value="swimming"/>Swimming
             </label>
             <label>
-                <input type="radio" name="activitylist" value="martialarts"/>Martial Arts
+                <input type="radio" name="activitylist" value="martial arts"/>Martial Arts
             </label>
         <br>
         <br>
         <h2>PRE­SESSION:</h2>
-            This section refers to how you were feeling before activity
+            This section refers to how you were feeling before <span class="activity">activity</span>.
         <br>
         <br>
         Today, I felt: 
@@ -70,21 +71,21 @@
         <br>
         Overall, I feel that my health is: 
         <label>
-            <input type="radio" name="presession" value="verygood"/>Very good
+            <input type="radio" name="health" value="verygood"/>Very good
         </label>
         <label>
-            <input type="radio" name="presession" value="good"/>Good
+            <input type="radio" name="health" value="good"/>Good
         </label>
         <label>
-            <input type="radio" name="presession" value="bad"/>Bad
+            <input type="radio" name="health" value="bad"/>Bad
         </label>
         <label>
-            <input type="radio" name="presession" value="verybad"/>Very bad
+            <input type="radio" name="health" value="verybad"/>Very bad
         </label>
     <br>
     <br>
     <h2>POSTSESSION:</h2>
-        This section refers to how you felt after activity:
+        This section refers to how you felt after <span class="activity">activity</span>:
     <br>
     The BEST part of activity was:<br>
     <input type="text" name="bestpart">
@@ -93,7 +94,7 @@
     <input type="text" name="worstpart">
     <br>
     <br>
-    After participating in activity, I would do activity on my own.
+    After participating in <span class="activity">activity</span>, I would do <span class="activity">activity</span> on my own.
     <br>
     <label>
             <input type="radio" name="postsession" value="verygood"/>Strongly Agree
@@ -133,4 +134,9 @@
 
 </div>
 </body>
+<script
+src="https://code.jquery.com/jquery-3.2.1.js"
+integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+crossorigin="anonymous"></script>
+<script src="./script.js"></script>
 </html>
