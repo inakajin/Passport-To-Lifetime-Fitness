@@ -6,11 +6,12 @@ var bcrypt   = require('bcrypt-nodejs');
 var userSchema = mongoose.Schema({
     firstname: String, 
     lastname: String,
-    admin: Boolean,
+    admin: String,
     //studentid: Number,
     local            : {
         email        : String,
         password     : String,
+        //admin        : Boolean,
     },
     facebook         : {
         id           : String,

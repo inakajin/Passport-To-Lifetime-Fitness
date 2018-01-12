@@ -19,6 +19,26 @@ module.exports = function(app, passport) {
     });
   });
   // normal routes ===============================================================
+  app.get("/approvalform/:id", function(req, res) {
+    console.log(req.params);
+    Visit.findOne({_id: req.params.id}).exec().then(visit => {
+      res.render("visit.ejs", {
+        user: req.user, 
+        //admin: admin
+        visit: visit
+      });
+      //console.log(visit)
+    }).catch(err => { throw err })
+  })
+
+  app.post("/approvalform/:id", function(req, res) {
+    console.log(req.params);
+    Visit.update({_id: req.params.id}, {$set: {approved:true}}, 
+      function(error, doc){
+        console.log(doc, error, " updated");
+        res.json({success:true});
+      });
+  })
 
   // show the home page (will also have our login links)
   app.get("/", function(req, res) {
@@ -28,14 +48,27 @@ module.exports = function(app, passport) {
   // PROFILE SECTION =========================
   app.get("/profile", isLoggedIn, function(req, res) {
     console.log(req.user);
-    Visit.find({userid:req.user._id}).exec().then(visits=>{
+    let admin;
+    let query;
+    if (req.user.admin) {
+      admin = true;
+      query = {}
+    } else {
+      admin = false;
+      query = { userid: req.user._id }
+    }
+    Visit.find(query)
+      .exec()
+      .then(visits => {
         res.render("profile.ejs", {
-            user: req.user,
-            visits: visits,
-          });
-
-    }).catch(err => { throw err })
-    
+          user: req.user,
+          visits: visits,
+          admin: admin
+        });
+      })
+      .catch(err => {
+        throw err;
+      });
   });
 
   // LOGOUT ==============================

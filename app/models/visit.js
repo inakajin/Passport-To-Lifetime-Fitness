@@ -12,6 +12,10 @@ var visitSchema = mongoose.Schema({
     bestpart: String,
     worstpart: String,
     postsession: String,
+    approved: {
+        type: Boolean,
+        default: false
+    }
 });
 
 

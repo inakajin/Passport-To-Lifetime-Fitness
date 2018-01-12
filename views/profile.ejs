@@ -17,21 +17,27 @@
     </div>
 
     <div class="row">
-
+        <% if (admin) { %>
+            <h3>admin</h3>
+        <% } %>
+        
         <% if (user) { %>
             <p>
                 <strong>firstname</strong>: <%= user.firstname %><br>
                 <strong>lastname</strong>: <%= user.lastname %><br>
             </p>
         <% } %>
-
+            
         <% if (visits) { %>
+            <ul>
             <% for(var i=0; i < visits.length; i++) { %>
-                <tr>
-                  <td><%= visits[i].date %></td>
-                  <td><%= visits[i].activitylist %></td>
-                </tr>
+                <li>
+                  <p><%= visits[i].date %></p>
+                  <p><%= visits[i].activitylist %></p>
+                  <a href="approvalform/<%=visits[i]._id %>" >link</a>
+                </li>
              <% } %>
+            </ul>
         <% } %>
         <!-- LOCAL INFORMATION -->
         <div class="col-sm-6">
