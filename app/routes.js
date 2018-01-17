@@ -57,17 +57,45 @@ module.exports = function(app, passport) {
       admin = false;
       query = { userid: req.user._id }
     }
-    Visit.find(query)
-      .exec()
-      .then(visits => {
-        res.render("profile.ejs", {
-          user: req.user,
-          visits: visits,
-          admin: admin
+    let users;
+    User.find(query)
+        .exec()
+        .then(users => {
+          users=users;
+          Visit.find(query)
+            .exec()
+            .then(visits => {
+              res.render("profile.ejs", {
+                user: req.user,
+                visits: visits,
+                admin: admin,
+                users: users
+              });
+            })
+            .catch(err => {
+              throw err;
+            });
+        })
+        .catch(err => {
+          throw err;
         });
-      })
-      .catch(err => {
-        throw err;
+  });
+
+  app.post("/profile/approveuser", isLoggedIn, function(req, res) {
+    console.log(req.body);
+    User.update({_id: req.body.id}, {$set: {active:true}}, 
+      function(error, doc){
+        console.log(doc, error, " updated");
+        res.json({success:true});
+      });
+  });
+
+  app.post("/profile/deleteuser", isLoggedIn, function(req, res) {
+    console.log(req.body);
+    User.remove({_id: req.body.id},
+      function(error, doc){
+        console.log(doc, error, " removed");
+        res.json({success:true});
       });
   });
 

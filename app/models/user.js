@@ -7,6 +7,10 @@ var userSchema = mongoose.Schema({
     firstname: String, 
     lastname: String,
     admin: String,
+    active: {
+        type: Boolean,
+        default: false
+    },
     //studentid: Number,
     local            : {
         email        : String,
