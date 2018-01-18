@@ -7,6 +7,8 @@ var userSchema = mongoose.Schema({
     firstname: String, 
     lastname: String,
     admin: String,
+    studentid: String,
+    school: String,
     active: {
         type: Boolean,
         default: false

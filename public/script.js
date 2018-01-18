@@ -29,3 +29,19 @@ $('button.deleteuser').click(function(e) {
         $(`[data-userid="${id}"]`).remove();
     })
 });
+
+$('button.modifyuser').click(function(e) {
+    $(this).parent().find('.modify-user').toggleClass('hide');
+})
+
+$('button.cancel-update').click(function(e) {
+    $(this).parent().toggleClass('hide');
+})
+
+$('button.submit').click(function(e) {
+    let id=$(this).parent().parent().data('userid');
+    console.log($(this));
+    $.post("/profile/updateuser", {id: id}, function(data, status){
+        console.log(data);
+    })
+})

@@ -4,6 +4,7 @@
     <title>Node Authentication</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/header.css">
     <style>
         body         { padding-top:80px; word-wrap:break-word; }
     </style>
@@ -34,9 +35,37 @@
                     user2
                   <p><%= users[i].local.email %></p>
                   <p><%= users[i].admin %></p>
+                  <% if (user.admin == "on"){ %>
                     <button class="approveuser">Approve</button>
                     <button class="deleteuser">Remove</button>
+                    <button class="modifyuser">Modify</button>
+                    
+                    <br>
+                    <div class="modify-user hide">
+                    First name:<br>
+                    <input type="text" name="firstname" value="<%= users[i].firstname %>">
+                    <br>
+                    Last name:<br>
+                    <input type="text" name="lastname" value="<%= users[i].lastname %>">
+                    <br>
+                    Student ID:<br>
+                    <input type="number" name="studentid" value="<%= users[i].studentid %>">
+                    <br>
+                    
+                    Please select your school:<br>
+                        <select name="schools">
+                            <option <%= users[i].school=="School A" ? "selected":null %> value="School A">School A</option>
+                            <option <%= users[i].school=="School B" ? "selected":null %> value="School B">School B</option>
+                            <option <%= users[i].school=="School C" ? "selected":null %> value="School C">School C</option>
+                            <option <%= users[i].school=="School D" ? "selected":null %> value="School D">School D</option>
+                            <option <%= users[i].school=="School E" ? "selected":null %> value="School E">School E</option>
+                        </select>
+                    <br>
+                    <button class="cancel-update">Cancel</button>
+                    <button class="submit">Submit</button>
+                <% } %>
                 </li>
+            </div>
              <% } %>
             </ul>
         <% } %>  
@@ -52,7 +81,7 @@
              <% } %>
             </ul>
         <% } %>
-        <!-- LOCAL INFORMATION -->
+        <!-- LOCAL INFORMATION 
         <div class="col-sm-6">
             <div class="well">
                 <h3><span class="fa fa-user"></span> Local</h3>
@@ -74,7 +103,7 @@
     <div class="text-center">
         <p>A demo by <a href="http://scotch.io">Scotch</a>.</p>
         <p>Visit the <a href="http://scotch.io/tutorials/javascript/easy-node-authentication-setup-and-local">tutorial</a>.</p>
-    </div>
+    </div>  -->
 
 </div>
 </body>

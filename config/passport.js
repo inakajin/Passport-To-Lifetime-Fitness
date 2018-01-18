@@ -99,7 +99,11 @@ module.exports = function(passport) {
                         console.log(req.body);
                         newUser.local.email    = email;
                         newUser.local.password = newUser.generateHash(password);
+                        newUser.firstname = req.body.firstname;
+                        newUser.lastname = req.body.lastname;
+                        newUser.studentid = req.body.studentid;
                         newUser.admin = req.body.admin;
+                        newUser.school = req.body.school;
                         newUser.save(function(err) {
                             if (err)
                                 return done(err);

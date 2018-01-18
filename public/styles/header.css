@@ -23,3 +23,11 @@
     background-color: green;
     padding: 10px;
   }
+
+  .hide {
+    display:none;
+  }
+
+  .modify-user {
+    border: 1px solid black;   
+  }
