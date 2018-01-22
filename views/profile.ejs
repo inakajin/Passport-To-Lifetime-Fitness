@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Node Authentication</title>
+    <title>Passport to Lifetime Fitness</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/header.css">
@@ -11,10 +11,12 @@
 </head>
 <body>
 <div class="container">
-<a href="/submitform">Submit Form</a>
     <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <h1><span class="fa fa-heart-o"></span> Passport to Lifetime Fitness</h1>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+        <a href="./password" class="btn btn-default btn-sm">Change Password</a>
+        <a href="/submitform" class="btn btn-default btn-sm">Add Visit</a>
+
     </div>
 
     <div class="row">
@@ -24,8 +26,9 @@
         
         <% if (user) { %>
             <p>
-                <strong>firstname</strong>: <%= user.local.email %><br>
-                <strong>lastname</strong>: <%= user.admin %><br>
+                <strong>First Name</strong>: <%= user.firstname %><br>
+                <strong>Last Name</strong>: <%= user.lastname %><br>
+                <strong>Email</strong>: <%= user.local.email %><br>
             </p>
         <% } %>
         <% if (users) { %>

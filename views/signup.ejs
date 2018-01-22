@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Node Authentication</title>
+    <title>Passport to Lifetime Fitness</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <style>
@@ -33,14 +33,24 @@
             <label>Admin</label>
         </div> 
         First name:<br>
-        <input type="text" name="firstname" value="Mickey">
+        <input type="text" name="firstname" value="Mickey" required>
         <br>
         Last name:<br>
-        <input type="text" name="lastname" value="Mouse">
+        <input type="text" name="lastname" value="Mouse" required>
         <br>
         Student ID:<br>
-        <input type="number" name="studentid" value="0112358">
-        <br>
+        <input type="text" 
+        name="studentid" 
+        required
+        pattern="^\d{7}$" 
+        id="studentid" 
+        title="The Student ID must be 7 numbers." value="0112358">
+        <script>var input = document.getElementById('studentid');
+                input.oninvalid = function(event) {
+                    event.target.setCustomValidity('The Student ID must be 7 numbers.');
+                }</script>
+        >
+                <br>
         
         Please select your school:<br>
         <select name="school">

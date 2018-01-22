@@ -39,9 +39,16 @@ $('button.cancel-update').click(function(e) {
 })
 
 $('button.submit').click(function(e) {
+    //console.log($(this).attr("data-studentid"));
     let id=$(this).parent().parent().data('userid');
-    console.log($(this));
+    $(this).closest('li').data('userid')
+    //console.log($(this));
     $.post("/profile/updateuser", {id: id}, function(data, status){
         console.log(data);
     })
 })
+
+//var input = document.getElementById('studentid');
+//input.oninvalid = function(event) {
+//    event.target.setCustomValidity('The Student ID must be 7 numbers.');
+//}
