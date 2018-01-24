@@ -1,90 +1,110 @@
 <!doctype html>
 <html>
+
 <head>
     <title>Passport to Lifetime Fitness</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles/header.css">
-    <style>
-        body         { padding-top:80px; word-wrap:break-word; }
-    </style>
+    <link rel="stylesheet" href="styles/main.css">
 </head>
+
 <body>
-<div class="container">
-    <div class="page-header text-center">
-        <h1><span class="fa fa-heart-o"></span> Passport to Lifetime Fitness</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-        <a href="./password" class="btn btn-default btn-sm">Change Password</a>
-        <a href="/submitform" class="btn btn-default btn-sm">Add Visit</a>
+    <div class="container">
+        <div class="page-header text-center">
+            <h1>
+                <span class="fa fa-heart-o"></span> Passport to Lifetime Fitness</h1>
+            <a href="/submitform" class="btn btn-default btn-sm">Add Visit</a>
+            <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+            <a href="/password" class="btn btn-default btn-sm">Change Password</a>
+        </div>
 
-    </div>
+        <div class="row">
 
-    <div class="row">
-        <% if (admin) { %>
-            <h3>admin</h3>
-        <% } %>
-        
-        <% if (user) { %>
-            <p>
-                <strong>First Name</strong>: <%= user.firstname %><br>
-                <strong>Last Name</strong>: <%= user.lastname %><br>
-                <strong>Email</strong>: <%= user.local.email %><br>
-            </p>
-        <% } %>
-        <% if (users) { %>
-            <ul>
-            <% for(var i=0; i < users.length; i++) { %>
-                <li data-userid="<%= users[i]._id %>">
-                    user2
-                  <p><%= users[i].local.email %></p>
-                  <p><%= users[i].admin %></p>
-                  <% if (user.admin == "on"){ %>
-                    <button class="approveuser">Approve</button>
-                    <button class="deleteuser">Remove</button>
-                    <button class="modifyuser">Modify</button>
-                    
-                    <br>
-                    <div class="modify-user hide">
-                    First name:<br>
-                    <input type="text" name="firstname" value="<%= users[i].firstname %>">
-                    <br>
-                    Last name:<br>
-                    <input type="text" name="lastname" value="<%= users[i].lastname %>">
-                    <br>
-                    Student ID:<br>
-                    <input type="number" name="studentid" value="<%= users[i].studentid %>">
-                    <br>
-                    
-                    Please select your school:<br>
-                        <select name="schools">
-                            <option <%= users[i].school=="School A" ? "selected":null %> value="School A">School A</option>
-                            <option <%= users[i].school=="School B" ? "selected":null %> value="School B">School B</option>
-                            <option <%= users[i].school=="School C" ? "selected":null %> value="School C">School C</option>
-                            <option <%= users[i].school=="School D" ? "selected":null %> value="School D">School D</option>
-                            <option <%= users[i].school=="School E" ? "selected":null %> value="School E">School E</option>
-                        </select>
-                    <br>
-                    <button class="cancel-update">Cancel</button>
-                    <button class="submit">Submit</button>
+            <h3>
+                <%= user.admin %>
+            </h3>
+
+
+            <% if (user) { %>
+                <p>
+                    <strong>First Name</strong>:
+                    <%= user.firstname %>
+                        <br>
+                        <strong>Last Name</strong>:
+                        <%= user.lastname %>
+                            <br>
+                            <strong>Email</strong>:
+                            <%= user.local.email %>
+                                <br>
+                </p>
                 <% } %>
-                </li>
-            </div>
-             <% } %>
-            </ul>
-        <% } %>  
-        <hr>
-        <% if (visits) { %>
-            <ul>
-            <% for(var i=0; i < visits.length; i++) { %>
-                <li>
-                  <p><%= visits[i].date %></p>
-                  <p><%= visits[i].activitylist %></p>
-                  <a href="approvalform/<%=visits[i]._id %>" >link</a>
-                </li>
-             <% } %>
-            </ul>
-        <% } %>
-        <!-- LOCAL INFORMATION 
+                    <% if (users) { %>
+                        <ul>
+                            <% for(var i=0; i < users.length; i++) { %>
+                                <li data-userid="<%= users[i]._id %>">
+                                    <p>
+                                        <%= users[i].firstname %>
+                                    </p>
+                                    <p>
+                                        <%= users[i].lastname %>
+                                    </p>
+                                    <p>
+                                        <%= users[i].local.email %>
+                                    </p>
+                                    <p>
+                                        <%= users[i].admin %>
+                                    </p>
+                                    <% if (user.admin == "on"){ %>
+                                        <button class="approveuser">Approve</button>
+                                        <button class="deleteuser">Remove</button>
+                                        <button class="modifyuser">Modify</button>
+
+                                        <br>
+                                        <form class="modify-user hide">
+                                            First name:
+                                            <br>
+                                            <input type="text" name="firstname" value="<%= users[i].firstname %>">
+                                            <br> Last name:
+                                            <br>
+                                            <input type="text" name="lastname" value="<%= users[i].lastname %>">
+                                            <br> Student ID:
+                                            <br>
+                                            <input type="number" name="studentid" value="<%= users[i].studentid %>">
+                                            <br> Please select your school:
+                                            <br>
+                                            <select name="schools">
+                                                <option <%=users[i].school=="School A" ? "selected":null %> value="School A">School A</option>
+                                                <option <%=users[i].school=="School B" ? "selected":null %> value="School B">School B</option>
+                                                <option <%=users[i].school=="School C" ? "selected":null %> value="School C">School C</option>
+                                                <option <%=users[i].school=="School D" ? "selected":null %> value="School D">School D</option>
+                                                <option <%=users[i].school=="School E" ? "selected":null %> value="School E">School E</option>
+                                            </select>
+                                            <br>
+                                            <button class="cancel-update">Cancel</button>
+                                            <input type="submit" value="Submit">
+                                            <% } %>
+                                </li>
+                                </form>
+                                <% } %>
+                        </ul>
+                        <% } %>
+                            <hr>
+                            <% if (visits) { %>
+                                <ul>
+                                    <% for(var i=0; i < visits.length; i++) { %>
+                                        <li>
+                                            <p>
+                                                <%= visits[i].date %>
+                                            </p>
+                                            <p>
+                                                <%= visits[i].activitylist %>
+                                            </p>
+                                            <a href="approvalform/<%=visits[i]._id %>">link</a>
+                                        </li>
+                                        <% } %>
+                                </ul>
+                                <% } %>
+                                    <!-- LOCAL INFORMATION 
         <div class="col-sm-6">
             <div class="well">
                 <h3><span class="fa fa-user"></span> Local</h3>
@@ -108,11 +128,9 @@
         <p>Visit the <a href="http://scotch.io/tutorials/javascript/easy-node-authentication-setup-and-local">tutorial</a>.</p>
     </div>  -->
 
-</div>
+        </div>
 </body>
-<script
-src="https://code.jquery.com/jquery-3.2.1.js"
-integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 <script src="./script.js"></script>
+
 </html>

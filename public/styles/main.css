@@ -2,6 +2,20 @@
     box-sizing: border-box;
   }
 
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin-top:0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+  }
+  
+  html, body {
+    height: 100%;
+  }
+
   .header {
     background-color: #008CBA;
     margin-bottom: 40px;
@@ -12,6 +26,9 @@
     color: white;
     vertical-align: middle;
   }
+
+
+
 
   .notification {
     transition: all .5s;

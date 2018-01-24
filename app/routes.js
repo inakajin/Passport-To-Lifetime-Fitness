@@ -58,10 +58,11 @@ module.exports = function(app, passport) {
       query = { userid: req.user._id }
     }
     let users;
-    User.find(query)
-        .exec()
-        .then(users => {
-          users=users;
+ User.find(query)
+       .exec()
+       .then(users => {
+        users=users;
+  console.log(req.user);
           Visit.find(query)
             .exec()
             .then(visits => {
@@ -99,14 +100,23 @@ module.exports = function(app, passport) {
       });
   });
 
- // app.post("/profile/updateuser", isLoggedIn, function(req, res) {
- //   console.log(req.body);
- //   User.update({_id: req.body.id}, {},
- //     function(error.doc){
-  //      console.log(doc, error, " updated");
-  //      res.json({success:true});
- //    });
- // });
+  app.post("/profile/updateuser", isLoggedIn, function(req, res) {
+    console.log(req.body, "Mickey");
+    User.update({_id: req.body.id}, {$set: {
+          firstname: req.body.firstname,
+          lastname: req.body.lastname,
+          studentid: req.body.studentid      
+    }
+ },
+      function(error, doc){
+        console.log(doc, error, " updated");
+        res.json({success:true});
+        //res.redirect("../profile");
+    });
+  });
+
+// Password Reset and Forgot Password
+
 
   // LOGOUT ==============================
   app.get("/logout", function(req, res) {

@@ -38,13 +38,25 @@ $('button.cancel-update').click(function(e) {
     $(this).parent().toggleClass('hide');
 })
 
-$('button.submit').click(function(e) {
+$('form.modify-user').submit(function(e) {
+    e.preventDefault();
+    //var values = $(this);
+    // var input = $(this).closest("form").find("input").val(); // This is the jquery object of the input, do what you will
+    //console.log(input)
     //console.log($(this).attr("data-studentid"));
-    let id=$(this).parent().parent().data('userid');
-    $(this).closest('li').data('userid')
+    var inputs = $(this).closest("form").find("input");
+    var values = {};
+    inputs.each(function() {
+    values[this.name] = $(this).val();
+});
+    console.log(values);
+    let id=$(this).closest('li').data('userid')
+    //$(this).parent().parent().data('userid');
+    values.id=id;
     //console.log($(this));
-    $.post("/profile/updateuser", {id: id}, function(data, status){
+    $.post("/profile/updateuser", values, function(data, status){
         console.log(data);
+        window.location.reload();
     })
 })
 

@@ -1,6 +1,7 @@
 var fs = require('fs');
 var express = require('express');
 var app = express.createServer();
+var User = require("../app/models/user");
 
 app.use(express.static(__dirname));
 app.use(require('sesame')()); // for sessions
@@ -32,7 +33,10 @@ app.post('/reset', express.bodyParser(), function (req, res) {
     var confirm = req.body.confirm;
     if (password !== confirm) return res.end('passwords do not match');
     
-    // update the user db here
+    User.update({_id: req.session.passport.id}, {
+            password: req.body.password,
+        },
+
     
     forgot.expire(req.session.reset.id);
     delete req.session.reset;
