@@ -42,16 +42,14 @@
         <input type="text" 
         name="studentid" 
         required
-        pattern="^\d{7}$" 
+        pattern="^\d{7}$"  
+        maxlength="7"        
         id="studentid" 
         title="The Student ID must be 7 numbers." value="0112358">
-        <script>var input = document.getElementById('studentid');
-                input.oninvalid = function(event) {
-                    event.target.setCustomValidity('The Student ID must be 7 numbers.');
-                }</script>
+       
         >
                 <br>
-        
+                
         Please select your school:<br>
         <select name="school">
                 <option value="School A">School A</option>
@@ -79,4 +77,6 @@
 </div>
 </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+<script src="./script.js"></script>
 </html>

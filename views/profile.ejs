@@ -104,7 +104,18 @@
                                         <% } %>
                                 </ul>
                                 <% } %>
-                                    <!-- LOCAL INFORMATION 
+                                <% if (visits) { %>
+                                    
+                                    <script>
+                                      // var visitData = <%= visits %>
+                                                  
+                                    </script>
+                                    <% data= JSON.stringify(visits) %>
+                                    <% include includes/piechart.ejs %>
+                               <% } %>
+                             
+
+                                        <!-- LOCAL INFORMATION 
         <div class="col-sm-6">
             <div class="well">
                 <h3><span class="fa fa-user"></span> Local</h3>

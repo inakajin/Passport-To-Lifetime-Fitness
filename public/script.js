@@ -60,6 +60,12 @@ $('form.modify-user').submit(function(e) {
     })
 })
 
+$(document).on("keyup","#studentid",function(){
+    if($(this).val().length>=7) {
+        $('form')[0].reportValidity();
+    }
+ });
+
 //var input = document.getElementById('studentid');
 //input.oninvalid = function(event) {
 //    event.target.setCustomValidity('The Student ID must be 7 numbers.');

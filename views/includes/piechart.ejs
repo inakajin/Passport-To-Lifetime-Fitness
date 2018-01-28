@@ -1,0 +1,22 @@
+<meta charset="utf-8">
+
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<link href="styles/piechart.css" rel="stylesheet" type="text/css"/>
+<div class="container">
+<div id="graph">
+    <li> <%= data %> </li>
+    <script>
+       
+        var visitData = <%- JSON.stringify(data) %> 
+                 
+     </script>
+</div>  
+  
+  <div id="adjust">
+    Duration  <input type="textbox" id="duration"  value="500"> in milliseconds
+    <br>
+    <button class="randomize">New Data</button> 
+    
+  </div>
+</div>
+<script src="../piechart.js"></script>
