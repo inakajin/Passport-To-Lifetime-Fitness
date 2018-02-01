@@ -11,12 +11,23 @@
     margin-right: 0px;
     margin-bottom: 0px;
   }
+ 
   
+  
+
   html, body {
     height: 100%;
   }
 
-  .header {
+.jumbotron {
+  background-color: #008CBA;
+}
+
+.jumbotron h1 {
+  color: white;
+}
+
+  header {
     background-color: #008CBA;
     margin-bottom: 40px;
     padding-bottom: 20px;

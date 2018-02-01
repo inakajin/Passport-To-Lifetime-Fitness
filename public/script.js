@@ -31,7 +31,11 @@ $('button.deleteuser').click(function(e) {
 });
 
 $('button.modifyuser').click(function(e) {
+    window.t=this;
+    console.log(this);
+    e.stopPropagation();
     $(this).parent().find('.modify-user').toggleClass('hide');
+    return false;
 })
 
 $('button.cancel-update').click(function(e) {
@@ -66,6 +70,15 @@ $(document).on("keyup","#studentid",function(){
     }
  });
 
+ function openCity(cityName) {
+    var i;
+    var x = document.getElementsByClassName("city");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none"; 
+    }
+    document.getElementById(cityName).style.display = "block"; 
+}
+ 
 //var input = document.getElementById('studentid');
 //input.oninvalid = function(event) {
 //    event.target.setCustomValidity('The Student ID must be 7 numbers.');

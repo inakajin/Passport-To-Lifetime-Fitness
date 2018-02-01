@@ -1,0 +1,15 @@
+<% if (visits) { %>
+    <ul>
+        <% for(var i=0; i < visits.length; i++) { %>
+            <li>
+                <p>
+                    <%= visits[i].date %>
+                </p>
+                <p>
+                    <%= visits[i].activitylist %>
+                </p>
+                <a href="approvalform/<%=visits[i]._id %>">link</a>
+            </li>
+            <% } %>
+    </ul>
+    <% } %>

@@ -21,6 +21,7 @@ module.exports = function(app, passport) {
   // normal routes ===============================================================
   app.get("/approvalform/:id", function(req, res) {
     console.log(req.params);
+    console.log("hippopotamus");
     Visit.findOne({_id: req.params.id}).exec().then(visit => {
       res.render("visit.ejs", {
         user: req.user, 

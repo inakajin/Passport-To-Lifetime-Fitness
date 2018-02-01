@@ -37,7 +37,38 @@
                             <%= user.local.email %>
                                 <br>
                 </p>
+                <% if (visits) { %>
+                    <% data= JSON.stringify(visits) %>
+                    <% include includes/piechart.ejs %>
+               <% } %>
                 <% } %>
+
+                <div class="w3-bar w3-black">
+                        <button class="w3-bar-item w3-button" onclick="openCity('London')">London</button>
+                        <button class="w3-bar-item w3-button" onclick="openCity('Paris')">Paris</button>
+                        <button class="w3-bar-item w3-button" onclick="openCity('Tokyo')">Tokyo</button>
+                      </div>
+
+                <div id="London" class="city">
+                        <h2>London</h2>
+                        <p>London is the capital of England.</p>
+                        <% include includes/useradmin.ejs %>
+                      </div>
+                      
+                      <div id="Paris" class="city" style="display:none">
+                        <h2>Paris</h2>
+                        <p>Paris is the capital of France.</p> 
+                        <% include includes/visitadmin.ejs %>
+                      </div>
+                      
+                      <div id="Tokyo" class="city" style="display:none">
+                        <h2>Tokyo</h2>
+                        <p>Tokyo is the capital of Japan.</p>
+                      </div>
+
+
+
+<!--
                     <% if (users) { %>
                         <ul>
                             <% for(var i=0; i < users.length; i++) { %>
@@ -104,15 +135,7 @@
                                         <% } %>
                                 </ul>
                                 <% } %>
-                                <% if (visits) { %>
-                                    
-                                    <script>
-                                      // var visitData = <%= visits %>
-                                                  
-                                    </script>
-                                    <% data= JSON.stringify(visits) %>
-                                    <% include includes/piechart.ejs %>
-                               <% } %>
+                            -->                               
                              
 
                                         <!-- LOCAL INFORMATION 
@@ -140,8 +163,9 @@
     </div>  -->
 
         </div>
-</body>
-<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-<script src="./script.js"></script>
+    <footer>
+                <% include includes/footer.ejs %>            
+    </footer>
+    </body>
 
 </html>

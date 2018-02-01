@@ -22,11 +22,11 @@
     <form action="/signup" method="post">
         <div class="form-group">
             <label>Email</label>
-            <input type="text" class="form-control" name="email">
+            <input type="text" class="form-control" name="email" required>
         </div>
         <div class="form-group">
             <label>Password</label>
-            <input type="password" class="form-control" name="password">
+            <input type="password" class="form-control" name="password" required>
         </div>
         <div class="form-group">
             <input type="checkbox" name="admin">
@@ -76,7 +76,9 @@
 
 </div>
 </div>
+<footer>
+        <% include includes/footer.ejs %>
+</footer>
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-<script src="./script.js"></script>
+
 </html>

@@ -1,4 +1,4 @@
-.container {
+.pie_container {
     font-family: "Open Sans", sans-serif;
     font-weight: 500;
     font-size: 18px;
@@ -6,13 +6,17 @@
     height: 500px;
     position: relative;
     //background-color: #333;
-    margin: 0 auto;
+    border: 2px solid gray;
+    margin: 50px auto;
   }
 
+
+
 #graph {
-    border-radius: 5px 5px 0 0;
+   /* border-radius: 5px 5px 0 0;
     padding-top: 50px;
-    margin: 25px auto 0;
+    margin: 25px auto 0;*/
+    
     height: 100%;
     background-color: #fff;
   }
@@ -32,6 +36,7 @@
   }
   
   #adjust {
+    display:none;
     outline: transparent;
     padding: 25px 0;
     background-color: #eee;

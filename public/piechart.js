@@ -1,5 +1,26 @@
 if(visitData){ console.log(visitData)};
 
+function constructData(visitData) {
+	let data=[{label:"basketball", value:0}, {label:"swimming", value:0}, {label:"yoga", value:0}]
+	visitData.forEach(function(visit){
+		console.log(visit.activitylist) 
+		
+			for (var i=0; i<data.length; i++){
+				console.log(data[i])
+				//if (visit.activitylist in data[i])
+				if (visit.activitylist==data[i].label)
+				{data[i].value++}
+			}
+
+
+			
+	})
+	
+	//change(data);
+	console.log(data);
+	return data;
+}
+
 var svg = d3.select("#graph")
 	.append("svg")
 	.append("g")
@@ -48,10 +69,13 @@ function randomData (){
 	});
 }
 
-change(randomData());
+let dummyData = [{label:"apple", value:0},{label:"banana", value:.8},{label:"coconut", value:.9}]
+let data=[{label:"basketball", value:1}, {label:"swimming", value:2}, {label:"yoga", value:3}, {label:"martial arts", value:5}]
+change(constructData(JSON.parse(visitData)));
 
 d3.select(".randomize")
 	.on("click", function(){
+		console.log(randomData());
 		change(randomData());
 	});
 
