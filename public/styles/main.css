@@ -1,7 +1,12 @@
 * {
     box-sizing: border-box;
   }
-
+  #wrapper {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
   body {
     display: flex;
     flex-direction: column;
@@ -10,6 +15,7 @@
     margin-left: 0px;
     margin-right: 0px;
     margin-bottom: 0px;
+    padding: 0px;
   }
  
   
@@ -27,20 +33,75 @@
   color: white;
 }
 
-  header {
+header {
     background-color: #008CBA;
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    /*padding-top: 20px;*/
     text-align: center;
-    /*border:1px solid black;*/
-    color: white;
     vertical-align: middle;
+    text-decoration: none;
+    color: white;
   }
 
+  header a {
+    text-decoration: none;
+    color: white;
+  }
+  header a:visited { text-decoration: none; }
+  header a:hover { text-decoration: none; color:#DEDEDE; }
+  header a:focus { text-decoration: none; }
+  header a:hover, a:active { text-decoration: none; }
 
 
+footer {
+  display: block;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 60px;
+  text-align: center;
+  font-style: italic;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #DEDEDE;background: linear-gradient(#DEDEDE, #BFBFBF, #999999);
+  vertical-align: middle;
+  height: auto;
+}
 
+.buttons-basic {
+    color: #333;
+    border-color: rgba(204, 204, 204, 0.205);
+    display: inline-block;
+    padding: 6px 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    border-radius: 12px;
+    background-color: #DEDEDE;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.form-group label {
+  display: inline-block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.form-group p {
+  font-family: 'Montserrat', sans-serif;
+}
   .notification {
     transition: all .5s;
     opacity: 0;

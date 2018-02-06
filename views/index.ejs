@@ -1,24 +1,19 @@
 <!doctype html>
 <html>
 <head>
-    <title>Passport to Lifetime Fitness</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <link href="./styles/main.css" rel="stylesheet" type="text/css" />
-	<link href="./styles/float-grid.css" rel="stylesheet" type="text/css"/>
-				
+        <% include includes/head.ejs %>				
 </head>
-    <style>
-        body         { padding-top:80px; }
-    </style>
-</head>
+
 <body>
+<header>
+        <% include includes/header.ejs %>
+</header>
 <div class="container">
 
     <div class="jumbotron text-center">
         <h1><span class="fa fa-heart-o"></span> Passport to Lifetime Fitness</h1>
-        <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Login</a>
-        <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Signup</a>
+        <a href="/login" class="buttons-basic"><span class="fa fa-user"></span> Login</a>
+        <a href="/signup" class="buttons-basic"><span class="fa fa-user"></span> Signup</a>
         
     </div>
 

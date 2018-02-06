@@ -1,19 +1,16 @@
 <!doctype html>
 <html>
 <head>
-    <title>Passport to Lifetime Fitness</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <style>
-        body         { padding-top:80px; word-wrap:break-word; }
-    </style>
+        <% include includes/head.ejs %>
 </head>
 <body>
+        <header>
+                <% include includes/header.ejs %>
+        </header>
 <div class="container">
     <div class="page-header text-center">
-        <h1><span class="fa fa-heart-o"></span> Passport to Lifetime Fitness</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-        <a href="/profile" class="btn btn-default btn-sm">My Profile</a>
+        <a href="/logout" class="buttons-basic">Logout</a>
+        <a href="/profile" class="buttons-basic">My Profile</a>
     </div>
     <form action="/form" method="POST">
         
@@ -92,19 +89,13 @@
         </label>
     <br>   
     <br>
-    <input type="submit" value="Submit">
+    <input type="submit" class="buttons-basic" value="Submit">
     <br>
     <br>
     <h3>Thank you for completing the Passport to Lifetime Fitness!</h3>
     <br>
     </form>
       
-       
-
-    <div class="text-center">
-        <p>A demo by <a href="http://scotch.io">Scotch</a>.</p>
-        <p>Visit the <a href="http://scotch.io/tutorials/javascript/easy-node-authentication-setup-and-local">tutorial</a>.</p>
-    </div>
 
 </div>
 <footer>
