@@ -1,18 +1,31 @@
 if(visitData){ console.log(visitData)};
 
-function constructData(visitData) {
-	let data=[{label:"basketball", value:0}, {label:"swimming", value:0}, {label:"yoga", value:0}]
+let activitylist=[{label:"basketball", value:0}, {label:"swimming", value:0}, {label:"yoga", value:0}, {label:"martial arts", value:0}]
+let presession=[{label:"great", value:0}, {label:"good", value:0}, {label:"ok", value:0}, {label:"ill", value:0}]
+let health=[{label:"very good", value:0}, {label:"good", value:0}, {label:"bad", value:0}, {label:"very bad", value:0}]
+let postsession=[{label:"strongly agree", value:0}, {label:"agree", value:0}, {label:"disagree", value:0}, {label:"strongly disagree", value:0}]
+let approved=[{label:"true", value:0}, {label:"false", value:0}]
+let dataTitles={
+	"activitylist":activitylist,
+	"presession":presession,
+	"health":health,
+	"postsession":postsession,
+	"approved": approved
+}
+function constructData(visitData, data, dataTitle) {
+	//let data=[{label:"basketball", value:0}, {label:"swimming", value:0}, {label:"yoga", value:0}]
+	
 	visitData.forEach(function(visit){
-		console.log(visit.activitylist) 
+		console.log(visit[dataTitle]) 
+		console.log(visit);
+		console.log(dataTitle);
 		
 			for (var i=0; i<data.length; i++){
 				console.log(data[i])
 				//if (visit.activitylist in data[i])
-				if (visit.activitylist==data[i].label)
+				if (String(visit[dataTitle])==data[i].label)
 				{data[i].value++}
 			}
-
-
 			
 	})
 	
@@ -26,7 +39,7 @@ var svg = d3.select("#graph")
 	.append("g")
 
 svg.append("g")
-	.attr("class", "slices");
+	.attr("class", "slices");	
 svg.append("g")
 	.attr("class", "labels");
 svg.append("g")
@@ -69,14 +82,17 @@ function randomData (){
 	});
 }
 
-let dummyData = [{label:"apple", value:0},{label:"banana", value:.8},{label:"coconut", value:.9}]
-let data=[{label:"basketball", value:1}, {label:"swimming", value:2}, {label:"yoga", value:3}, {label:"martial arts", value:5}]
-change(constructData(JSON.parse(visitData)));
+//let dummyData = [{label:"apple", value:0},{label:"banana", value:.8},{label:"coconut", value:.9}]
+//let data=[{label:"basketball", value:1}, {label:"swimming", value:2}, {label:"yoga", value:3}, {label:"martial arts", value:5}]
+change(constructData(JSON.parse(visitData),dataTitles["activitylist"],"activitylist"));
 
-d3.select(".randomize")
+d3.selectAll(".toggledata")
 	.on("click", function(){
-		console.log(randomData());
-		change(randomData());
+		//console.log(this.data-type);
+		let type = $(this).data('type');
+		console.log(dataTitles[type]);
+		change(constructData(JSON.parse(visitData),dataTitles[type],type));
+		//change(randomData());
 	});
 
 function mergeWithFirstEqualZero(first, second){
@@ -103,10 +119,11 @@ function change(data) {
 
 	var slice = svg.select(".slices").selectAll("path.slice")
 		.data(pie(was), key);
-
+		
 	slice.enter()
 		.insert("path")
 		.attr("class", "slice")
+		//.append("svg:title") .text(function(d) { return d.data.label; })
 		.style("fill", function(d) { return color(d.data.label); })
 		.each(function(d) {
 			this._current = d;

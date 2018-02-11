@@ -54,7 +54,7 @@ header {
 footer {
   display: block;
   width: 100%;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   height: 60px;
   text-align: center;

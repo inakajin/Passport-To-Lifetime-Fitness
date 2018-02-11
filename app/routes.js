@@ -34,7 +34,17 @@ module.exports = function(app, passport) {
 
   app.post("/approvalform/:id", function(req, res) {
     console.log(req.params);
-    Visit.update({_id: req.params.id}, {$set: {approved:true}}, 
+    console.log(req.body);
+    Visit.update({_id: req.params.id}, {$set: 
+      {
+      approved:true, 
+      activitylist:req.body.activitylist,
+      presession:req.body.presession,
+      postsession:req.body.postsession,
+      health:req.body.health,
+      bestpart:req.body.bestpart,
+      worstpart:req.body.worstpart
+    } }, 
       function(error, doc){
         console.log(doc, error, " updated");
         res.json({success:true});

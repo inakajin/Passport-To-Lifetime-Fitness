@@ -42,19 +42,19 @@
                 <% } %>
 
                 <div class="w3-bar w3-black">
-                        <button class="w3-bar-item w3-button" onclick="openCity('London')">London</button>
-                        <button class="w3-bar-item w3-button" onclick="openCity('Paris')">Paris</button>
+                        <button class="w3-bar-item w3-button" onclick="openCity('London')">User Admin</button>
+                        <button class="w3-bar-item w3-button" onclick="openCity('Paris')">Visit Admin</button>
                         <button class="w3-bar-item w3-button" onclick="openCity('Tokyo')">Tokyo</button>
                       </div>
 
                 <div id="London" class="city">
-                        <h2>London</h2>
+                        <h2>User Admin</h2>
                         <p>London is the capital of England.</p>
                         <% include includes/useradmin.ejs %>
                       </div>
                       
                       <div id="Paris" class="city" style="display:none">
-                        <h2>Paris</h2>
+                        <h2>Visit Admin</h2>
                         <p>Paris is the capital of France.</p> 
                         <% include includes/visitadmin.ejs %>
                       </div>
