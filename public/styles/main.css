@@ -18,7 +18,13 @@
     padding: 0px;
   }
  
-  
+.tab-container {
+  padding-bottom: 100px;
+}
+
+ .userlist {
+   list-style: none;
+ } 
   
 
   html, body {
@@ -53,6 +59,7 @@ header {
 
 footer {
   display: block;
+  padding-top: 20px;
   width: 100%;
   position: fixed;
   bottom: 0;

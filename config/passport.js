@@ -99,7 +99,7 @@ module.exports = function(passport) {
                         newUser.firstname = req.body.firstname;
                         newUser.lastname = req.body.lastname;
                         newUser.studentid = req.body.studentid;
-                        newUser.admin = req.body.admin;
+                        //newUser.admin = req.body.admin;
                         newUser.school = req.body.school;
                         newUser.save(function(err) {
                             if (err)

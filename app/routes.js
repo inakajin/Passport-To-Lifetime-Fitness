@@ -102,6 +102,15 @@ module.exports = function(app, passport) {
       });
   });
 
+  app.post("/profile/adminpromote", isLoggedIn, function(req, res) {
+    console.log(req.body);
+    User.update({_id: req.body.id}, {$set: {admin:on}}, 
+      function(error, doc){
+        console.log(doc, error, " updated");
+        res.json({success:true});
+      });
+  });
+
   app.post("/profile/deleteuser", isLoggedIn, function(req, res) {
     console.log(req.body);
     User.remove({_id: req.body.id},
@@ -116,7 +125,8 @@ module.exports = function(app, passport) {
     User.update({_id: req.body.id}, {$set: {
           firstname: req.body.firstname,
           lastname: req.body.lastname,
-          studentid: req.body.studentid      
+          studentid: req.body.studentid,
+          admin: req.body.admin     
     }
  },
       function(error, doc){

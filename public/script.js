@@ -16,14 +16,17 @@ $("button.approve").click(function (e) {
 
 
 $('button.approveuser').click(function(e) {
-    let id=$(this).parent().data('userid');
+    //let id=$(this).parent().data('userid');
+    let id=$(this).closest('ul').data('userid')
     $.post("/profile/approveuser", {id: id}, function(data, status){
         console.log(data);
+        if (data.success){window.location.reload()}
     })
 });
 
 $('button.deleteuser').click(function(e) {
-    let id=$(this).parent().data('userid');
+    //let id=$(this).parent().data('userid');
+    let id=$(this).closest('ul').data('userid')
     $.post("/profile/deleteuser", {id: id}, function(data, status){
         console.log(data);
         $(`[data-userid="${id}"]`).remove();
@@ -33,8 +36,8 @@ $('button.deleteuser').click(function(e) {
 $('button.modifyuser').click(function(e) {
     window.t=this;
     console.log(this);
-    e.stopPropagation();
-    $(this).parent().find('.modify-user').toggleClass('hide');
+   e.stopPropagation();
+  $(this).parent().find('.modify-user').toggleClass('hide');
     return false;
 })
 
@@ -51,11 +54,12 @@ $('form.modify-user').submit(function(e) {
     var inputs = $(this).closest("form").find("input");
     var values = {};
     inputs.each(function() {
-    values[this.name] = $(this).val();
-});
+        values[this.name] = $(this).val();
+    });
     console.log(values);
-    let id=$(this).closest('li').data('userid')
+    let id=$(this).closest('ul').data('userid')
     //$(this).parent().parent().data('userid');
+    console.log(id);
     values.id=id;
     //console.log($(this));
     $.post("/profile/updateuser", values, function(data, status){

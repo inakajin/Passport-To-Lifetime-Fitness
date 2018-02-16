@@ -36,16 +36,16 @@
                         <br>
                         Please select the activity you participated in today: 
                             <label>
-                                <input type="radio" name="activitylist" value="basketball"/>Basketball
+                                <input type="radio" name="activitylist" value="basketball" <%= visit.activitylist == "basketball" ? "checked" : "" %>/>Basketball
                             </label>
                             <label>
-                                <input type="radio" name="activitylist" value="yoga"/>Yoga
+                                <input type="radio" name="activitylist" value="yoga" <%= visit.activitylist == "yoga" ? "checked" : "" %>/>Yoga
                             </label>
                             <label>
-                                <input type="radio" name="activitylist" value="swimming"/>Swimming
+                                <input type="radio" name="activitylist" value="swimming" <%= visit.activitylist == "swimming" ? "checked" : "" %>/>Swimming
                             </label>
                             <label>
-                                <input type="radio" name="activitylist" value="martial arts"/>Martial Arts
+                                <input type="radio" name="activitylist" value="martial arts" <%= visit.activitylist == "martial arts" ? "checked" : "" %>/>Martial Arts
                             </label>
                         <br>
                         <br>
@@ -69,16 +69,16 @@
                         <br>
                         Overall, I feel that my health is: 
                         <label>
-                            <input type="radio" name="health" value="very good"/>Very good
+                            <input type="radio" name="health" value="very good" <%= visit.health == "very good" ? "checked" : "" %>/>Very good
                         </label>
                         <label>
-                            <input type="radio" name="health" value="good"/>Good
+                            <input type="radio" name="health" value="good" <%= visit.health == "good" ? "checked" : "" %>/>Good
                         </label>
                         <label>
-                            <input type="radio" name="health" value="bad"/>Bad
+                            <input type="radio" name="health" value="bad" <%= visit.health == "bad" ? "checked" : "" %>/>Bad
                         </label>
                         <label>
-                            <input type="radio" name="health" value="very bad"/>Very bad
+                            <input type="radio" name="health" value="very bad" <%= visit.health == "very bad" ? "checked" : "" %>/>Very bad
                         </label>
                     <br>
                     <br>
@@ -95,16 +95,16 @@
                     After participating in <span class="activity">activity</span>, I would do <span class="activity">activity</span> on my own.
                     <br>
                     <label>
-                            <input type="radio" name="postsession" value="strongly agree"/>Strongly Agree
+                            <input type="radio" name="postsession" value="strongly agree" <%= visit.postsession == "strongly agree" ? "checked" : "" %>/>Strongly Agree
                         </label>
                         <label>
-                            <input type="radio" name="postsession" value="agree"/>Agree
+                            <input type="radio" name="postsession" value="agree" <%= visit.postsession == "agree" ? "checked" : "" %>/>Agree
                         </label>
                         <label>
-                            <input type="radio" name="postsession" value="disagree"/>Disagree
+                            <input type="radio" name="postsession" value="disagree" <%= visit.postsession == "disagree" ? "checked" : "" %>/>Disagree
                         </label>
                         <label>
-                            <input type="radio" name="postsession" value="strongly disagree"/>Strongly Disagree
+                            <input type="radio" name="postsession" value="strongly disagree" <%= visit.postsession == "strongly disagree" ? "checked" : "" %>/>Strongly Disagree
                         </label>
                     <br>   
                     <br>

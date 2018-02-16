@@ -1,36 +1,57 @@
 
 <% if (users) { %>
-    <ul>
+    
+    <container class="userlist-container">
+    <div class="row">
+        
+        
         <% for(var i=0; i < users.length; i++) { %>
-            <li data-userid="<%= users[i]._id %>">
-                <p>
-                    <%= users[i].firstname %>
-                </p>
-                <p>
-                    <%= users[i].lastname %>
-                </p>
-                <p>
-                    <%= users[i].local.email %>
-                </p>
-                <p>
-                    <%= users[i].admin %>
-                </p>
+            <ul class="userlist" data-userid="<%= users[i]._id %>">
+                <li>
+                   First Name: <%= users[i].firstname %>
+                </li>
+                <li>
+                    Last Name: <%= users[i].lastname %>
+                </li>
+                <li>
+                    Student ID: <%= users[i].studentid %>
+                </li>
+                <li>
+                    Email: <%= users[i].local.email %>
+                </li>
+                <li>
+                    School: <%= users[i].school %>
+                </li>
+                <li>
+                    Active: <%= users[i].active %>
+                </li>
+                <li>
+                    Admin: <%= users[i].admin %>
+                </li>
                 <% if (user.admin == "on"){ %>
+                
                     <button class="approveuser">Approve</button>
                     <button class="deleteuser">Remove</button>
                     <button class="modifyuser">Modify</button>
-
+                
                     <br>
                     <form class="modify-user hide">
                         First name:
                         <br>
                         <input type="text" name="firstname" value="<%= users[i].firstname %>">
+                        
                         <br> Last name:
                         <br>
-                        <input type="text" name="lastname" value="<%= users[i].lastname %>">
+                        <input type="text" name="lastname" value="<%=users[i].lastname %>">
+                        
                         <br> Student ID:
                         <br>
                         <input type="number" name="studentid" value="<%= users[i].studentid %>">
+                        
+                        <br> Email:
+                        <br>
+                        <input type="text" name="email" value="<%= users[i].local.email %>">
+                        
                         <br> Please select your school:
                         <br>
                         <select name="schools">
@@ -41,11 +62,18 @@
                             <option <%=users[i].school=="School E" ? "selected":null %> value="School E">School E</option>
                         </select>
                         <br>
+                        
+                                <input type="checkbox" name="admin" <%=users[i].admin=="on" ? "checked":null %>
+                                <label>Admin</label>
+                        <br>
                         <button class="cancel-update">Cancel</button>
                         <input type="submit" value="Submit">
+                        
                         <% } %>
-            </li>
+            
             </form>
+        </ul>
             <% } %>
-    </ul>
+        </div>
+        </container>
     <% } %>
