@@ -33,10 +33,17 @@ function constructData(visitData, data, dataTitle) {
 	console.log(data);
 	return data;
 }
+var width = 960,
+    height = 450,
+	radius = Math.min(width,height) / 2;
 
 var svg = d3.select("#graph")
-	.append("svg")
+	.append("svg").attr("viewBox", "0 0 960 450")
+	.attr("preserveAspectRatio", "xMinYMin meet")
 	.append("g")
+	.attr("transform", "translate(" + radius + "," + radius +") rotate(180) scale(-1, -1)");
+	//.append("g")
+	
 
 svg.append("g")
 	.attr("class", "slices");	
@@ -45,9 +52,7 @@ svg.append("g")
 svg.append("g")
 	.attr("class", "lines");
 
-var width = 960,
-    height = 450,
-	radius = Math.min(width,height) / 2;
+
 
 var pie = d3.layout.pie()
 	.sort(null)

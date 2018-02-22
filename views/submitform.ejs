@@ -8,12 +8,11 @@
                 <% include includes/header.ejs %>
         </header>
 <div class="container">
-    <div class="page-header text-center">
-        <a href="/logout" class="buttons-basic">Logout</a>
-        <a href="/profile" class="buttons-basic">My Profile</a>
-    </div>
+    
     <form action="/form" method="POST">
-        
+        <% if (user.admin=="on") { %>
+            <input type="text" name="email" value="<%= user.local.email %>">
+            <% } %>
         <br>
         Please select the activity you participated in today: 
             <label>

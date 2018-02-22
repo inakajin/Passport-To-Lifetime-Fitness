@@ -10,30 +10,23 @@
                 <% include includes/header.ejs %>
         </header>
     <div class="container">
-        <div class="page-header text-center">
-            <a href="/submitform" class="btn btn-default btn-sm">Add Visit</a>
-            <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-            <a href="/password" class="btn btn-default btn-sm">Change Password</a>
-        </div>
+        
 
         <div class="row tab-container">
-
-            <h3>
-                <%= user.admin %>
-            </h3>
-
+            
 
             <% if (user) { %>
                 <p>
-                    <strong>First Name</strong>:
-                    <%= user.firstname %>
+                    <strong>Hello, 
+                    <%= user.firstname %>.
+                </strong>
                         <br>
-                        <strong>Last Name</strong>:
-                        <%= user.lastname %>
-                            <br>
-                            <strong>Email</strong>:
-                            <%= user.local.email %>
-                                <br>
+                       <form class="searchform" action="action_page.php">
+                                <input type="text" placeholder="Search.." name="search">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                              </form>     
+                              <br>
+                              <br>   
                 </p>
                 <% if (visits) { %>
                     <% data= JSON.stringify(visits) %>
@@ -41,10 +34,10 @@
                <% } %>
                 <% } %>
 
-                <div class="w3-bar w3-black">
-                        <button class="w3-bar-item w3-button" onclick="openCity('London')">User Admin</button>
-                        <button class="w3-bar-item w3-button" onclick="openCity('Paris')">Visit Admin</button>
-                        <button class="w3-bar-item w3-button" onclick="openCity('Tokyo')">Form Admin</button>
+                <div class="tab-buttons">
+                        <button class="w3-bar-item w3-button buttons-basic" onclick="openCity('London')">User Admin</button>
+                        <button class="w3-bar-item w3-button buttons-basic" onclick="openCity('Paris')">Visit Admin</button>
+                        <button class="w3-bar-item w3-button buttons-basic" onclick="openCity('Tokyo')">Form Admin</button>
                 </div>
 
                 <div id="London" class="city">

@@ -2,20 +2,25 @@
 
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <link href="styles/piechart.css" rel="stylesheet" type="text/css"/>
+<div class="pie-card">
+<div class="parsing-buttons">  
+    <button class="toggledata" data-type="activitylist">Activity</button>
+    <button class="toggledata buttons-basic" data-type="presession">Pre-Session</button>
+    <button class="toggledata buttons-basic" data-type="health">Health</button>
+    <button class="toggledata buttons-basic" data-type="postsession">Post-Session</button>
+    <button class="toggledata buttons-basic" data-type="approved">Approved</button>
+</div>
 <div class="pie_container">
-<div id="graph">
+    
+  <div id="graph">
     <!-- <li> <%= data %> </li> -->
     <script>
        
         var visitData = <%- JSON.stringify(data) %> 
                  
      </script>
+</div>
 </div>  
-  <button class="toggledata buttons-basic" data-type="activitylist">Activity</button>
-  <button class="toggledata buttons-basic" data-type="presession">Pre-Session</button>
-  <button class="toggledata buttons-basic" data-type="health">Health</button>
-  <button class="toggledata buttons-basic" data-type="postsession">Post-Session</button>
-  <button class="toggledata buttons-basic" data-type="approved">Approved</button>
   <div id="adjust">
     Duration  <input type="textbox" id="duration"  value="500"> in milliseconds
     <br>

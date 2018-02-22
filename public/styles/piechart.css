@@ -2,15 +2,55 @@
     font-family: "Open Sans", sans-serif;
     font-weight: 500;
     font-size: 18px;
-    width: 960px;
-    height: 500px;
+    width: 100%;
+    height: 560px;
     position: relative;
     //background-color: #333;
-    border: 2px solid gray;
+    /*border: 2px solid gray;*/
     margin: 50px auto;
+   /* padding: 10px;*/
   }
 
+.parsing-buttons {
+    display: flex;
+}
 
+.parsing-buttons button {
+    width:20%;
+    margin: 10px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    background-color: #008CBA;
+    border: 1px solid gray;
+    border-radius: 12px;
+    box-shadow: 3px 3px 3px grey;
+    outline: none;
+}
+
+.parsing-buttons button:hover {
+    box-shadow: 3px 6px 3px grey;
+}
+
+.parsing-buttons button:focus {
+    box-shadow: 3px 6px 3px grey;
+}
+
+
+
+  .pie-parent {
+    
+  }
+
+  .pie-card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    
+}
+
+.pie-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 
 #graph {
    /* border-radius: 5px 5px 0 0;
@@ -21,7 +61,7 @@
     background-color: #fff;
   }
   #graph svg {
-    width: 100% !important;
+    width: 80vw !important;
   }
   #graph .slice {
     stroke: white;

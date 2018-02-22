@@ -1,8 +1,8 @@
 var User = require("../app/models/user");
 var Visit = require("../app/models/visit");
 module.exports = function(app, passport) {
-  app.get("/submitform", function(req, res) {
-    res.render("submitform.ejs");
+  app.get("/submitform", isLoggedIn, function(req, res) {
+    res.render("submitform.ejs", {user:req.user});
   });
 
   app.post("/form", isLoggedIn, function(req, res) {

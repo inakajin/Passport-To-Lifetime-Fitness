@@ -1,11 +1,28 @@
-
-<header>
+<nav>
+                <input type="checkbox" id="nav" class="hidden"/>
+                <label for="nav" class="nav-open"><i></i><i></i><i></i></label>
+                <h1 id="logo">
+                                <span class="fa fa-heart-o"></span> 
+                                <a href="./">Passport to Lifetime Fitness</a>
+                </h1>
+                <div class="nav-container">
+                <% if (typeof user != "undefined") { %>
+                  <ul>
+                    <li><a href="./">Home</a></li>
+                    <li><a href="./profile">My Profile</a></li>
+                    <li><a href="./submitform">Add Visit</a></li>
+                    <li><a href="./logout">Logout</a></li>
+                  </ul>
+                <% } %>
+                </div>
+              </nav>
+<!--<header>
         <div class="row">
                 <div class="col-12">
                         <h1>
                             <span class="fa fa-heart-o"></span> 
-                            <a href="/index">Passport to Lifetime Fitness</a>
+                            <a href="./">Passport to Lifetime Fitness</a>
                         </h1>
                 </div>
         </div>
-</header>
+</header>-->
