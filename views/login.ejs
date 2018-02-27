@@ -9,7 +9,7 @@
         </header>
 <div class="row">
 <div class="col-12">
-
+<div class="login-container">
     <% if (message.length > 0) { %>
         <div class="alert alert-danger"><%= message %></div>
     <% } %>
@@ -25,10 +25,12 @@
             <label>Password:</label>
             <input type="password" class="form-control" name="password">
         </div>
-
-        <button type="submit" class="buttons-basic">Login</button>
-        <button type="submit" class="buttons-basic">Forgot Password</button>
+        <div class="form-group">
+        <button type="submit" class="login">Login</button>
+    </div>
+        <!--<button type="submit" class="buttons-basic">Forgot Password</button>-->
     </form>
+</div>
 </div>
 </div>
 <div class="row">

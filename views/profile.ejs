@@ -9,46 +9,51 @@
         <header>
                 <% include includes/header.ejs %>
         </header>
+    
     <div class="container">
-        
+               
 
         <div class="row tab-container">
             
 
             <% if (user) { %>
+                
+            <div class="welcome-message">
                 <p>
                     <strong>Hello, 
                     <%= user.firstname %>.
-                </strong>
-                        <br>
-                       <form class="searchform" action="action_page.php">
-                                <input type="text" placeholder="Search.." name="search">
-                                <button type="submit"><i class="fa fa-search"></i></button>
-                              </form>     
-                              <br>
-                              <br>   
+                    </strong>
+                        <br>   
                 </p>
+            </div>
                 <% if (visits) { %>
                     <% data= JSON.stringify(visits) %>
                     <% include includes/piechart.ejs %>
                <% } %>
                 <% } %>
+            
+                <% if (user.admin == "on"){ %>
+            
+                <div class="searchbar">
+                    <p>Type something in the input field to search for first names, last names or emails:</p>
+                
+                <input class="myInput" type="text" placeholder="Search..">
+                <button type="submit"><i class="fa fa-search search-button"></i></button>
+                </div>
 
                 <div class="tab-buttons">
                         <button class="w3-bar-item w3-button buttons-basic" onclick="openCity('London')">User Admin</button>
                         <button class="w3-bar-item w3-button buttons-basic" onclick="openCity('Paris')">Visit Admin</button>
                         <button class="w3-bar-item w3-button buttons-basic" onclick="openCity('Tokyo')">Form Admin</button>
                 </div>
-
+                
                 <div id="London" class="city">
-                        <h2>User Admin</h2>
-                        <p>London is the capital of England.</p>
+                        <h2>User Administration</h2>
                         <% include includes/useradmin.ejs %>
                       </div>
                       
                       <div id="Paris" class="city" style="display:none">
-                        <h2>Visit Admin</h2>
-                        <p>Paris is the capital of France.</p> 
+                        <h2>Visit Admin</h2> 
                         <% include includes/visitadmin.ejs %>
                       </div>
                       
@@ -56,7 +61,12 @@
                         <h2>Form Admin</h2>
                         <p>Tokyo is the capital of Japan.</p>
                       </div>
-        </div>
+                      
+                      
+                      <% } %>
+                    </div>
+                    
+                    
     <footer>
                 <% include includes/footer.ejs %>            
     </footer>

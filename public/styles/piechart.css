@@ -23,7 +23,7 @@
     color: white;
     background-color: #008CBA;
     border: 1px solid gray;
-    border-radius: 12px;
+    /*border-radius: 12px;*/
     box-shadow: 3px 3px 3px grey;
     outline: none;
 }

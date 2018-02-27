@@ -5,8 +5,42 @@ module.exports = function(app, passport) {
     res.render("submitform.ejs", {user:req.user});
   });
 
-  app.post("/form", isLoggedIn, function(req, res) {
-    console.log(req.body, req.user);
+  app.get("/submitform/:id", isLoggedIn, function(req, res) {
+    res.render("submitform.ejs", {user:req.user});  
+  });
+    
+  app.post("/submitform", isLoggedIn, function(req, res) {
+    let visit = new Visit(req.body);
+
+    visit.userid = req.user._id;
+    visit.firstname = req.user.firstname;
+    visit.lastname = req.user.lastname;
+    visit.date = new Date();
+    visit.save(function(err) {
+    res.redirect("/profile");
+    });
+  });
+ 
+    app.post("/submitform/:id", isLoggedIn, function(req, res) {
+    console.log(req.body, req.user, req.params, req.query);
+    //       User.update({_id:req.user._id}, {$set:{firstname:req.body.firstname, lastname:req.body.lastname}},function(err,doc){
+    //          console.log(err,doc);
+    //            res.redirect("/profile");
+    //        });
+    let visit = new Visit(req.body);
+    
+      visit.userid = req.params.id;
+      visit.firstname = req.query.first;
+      visit.lastname = req.query.last;
+  
+    visit.date = new Date();
+    visit.save(function(err) {
+    res.redirect("/profile");
+    });
+  });
+
+  /*app.post("/form", isLoggedIn, function(req, res) {
+    console.log(req.body, req.user, req.params, req.query);
     //       User.update({_id:req.user._id}, {$set:{firstname:req.body.firstname, lastname:req.body.lastname}},function(err,doc){
     //          console.log(err,doc);
     //            res.redirect("/profile");
@@ -17,7 +51,12 @@ module.exports = function(app, passport) {
     visit.save(function(err) {
       res.redirect("/profile");
     });
-  });
+  });*/
+
+  
+
+
+
   // normal routes ===============================================================
   app.get("/approvalform/:id", function(req, res) {
     console.log(req.params);
@@ -73,13 +112,14 @@ module.exports = function(app, passport) {
        .exec()
        .then(users => {
         users=users;
-  console.log(req.user);
+  console.log("zebra");
           Visit.find(query)
             .exec()
             .then(visits => {
+              console.log(visits)
               res.render("profile.ejs", {
                 user: req.user,
-                visits: visits,
+                visits: visits.reverse(),
                 admin: admin,
                 users: users
               });
@@ -121,7 +161,7 @@ module.exports = function(app, passport) {
   });
 
   app.post("/profile/updateuser", isLoggedIn, function(req, res) {
-    console.log(req.body, "Mickey");
+    console.log(req.body, "Mickey", req.params, req.query);
     User.update({_id: req.body.id}, {$set: {
           firstname: req.body.firstname,
           lastname: req.body.lastname,

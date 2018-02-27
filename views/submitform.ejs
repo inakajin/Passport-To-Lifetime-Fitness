@@ -7,17 +7,18 @@
         <header>
                 <% include includes/header.ejs %>
         </header>
-<div class="container">
-    
-    <form action="/form" method="POST">
-        <% if (user.admin=="on") { %>
-            <input type="text" name="email" value="<%= user.local.email %>">
-            <% } %>
+<div class="submit-form-container">
+                <div class="col-12">   
+    <form action="" method="POST">
+      
         <br>
-        Please select the activity you participated in today: 
+        <br>
+        Please select the activity you participated in today:<br>
+            
             <label>
                 <input type="radio" name="activitylist" value="basketball"/>Basketball
             </label>
+       
             <label>
                 <input type="radio" name="activitylist" value="yoga"/>Yoga
             </label>
@@ -29,11 +30,13 @@
             </label>
         <br>
         <br>
-        <h2>PRE­SESSION:</h2>
-            This section refers to how you were feeling before <span class="activity">activity</span>.
+        <h3>Pre-session:</h3>
+        <p>
+            <i>This section refers to how you were feeling before <span class="activity">activity</span>.</i>
+        </p>
+            <br>
         <br>
-        <br>
-        Today, I felt: 
+        Today, I felt:<br> 
             <label>
                 <input type="radio" name="presession" value="great"/>Great
             </label>
@@ -47,7 +50,8 @@
                 <input type="radio" name="presession" value="ill"/>Ill
             </label>
         <br>
-        Overall, I feel that my health is: 
+        <br>
+        Overall, I feel that my health is:<br> 
         <label>
             <input type="radio" name="health" value="very good"/>Very good
         </label>
@@ -62,13 +66,16 @@
         </label>
     <br>
     <br>
-    <h2>POSTSESSION:</h2>
-        This section refers to how you felt after <span class="activity">activity</span>:
-    <br>
-    The BEST part of activity was:<br>
+    <h3>Post-session:</h3>
+        <p>
+           <i>This section refers to how you felt after <span class="activity">activity</span>.</i>
+        </p>
+            <br>
+    The <b>BEST</b> part of <span class="activity">activity</span> was:<br>
     <input type="text" name="bestpart">
     <br>
-    The WORST part of activity was:<br>
+    <br>
+    The <b>WORST</b> part of <span class="activity">activity</span> was:<br>
     <input type="text" name="worstpart">
     <br>
     <br>
@@ -88,14 +95,13 @@
         </label>
     <br>   
     <br>
-    <input type="submit" class="buttons-basic" value="Submit">
+    <input type="submit" class="submit-visit" value="Submit">
     <br>
     <br>
     <h3>Thank you for completing the Passport to Lifetime Fitness!</h3>
     <br>
     </form>
-      
-
+</div>
 </div>
 <footer>
         <% include includes/footer.ejs %>    

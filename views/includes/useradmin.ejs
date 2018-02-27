@@ -1,9 +1,13 @@
 
 <% if (users) { %>
-    
+<!--    <p>Type something in the input field to search the table for first names, last names or emails:</p>  
+<input class="myInput" type="text" placeholder="Search..">-->
+
+
+
     <container class="userlist-container">
     <div class="row">
-        
+        <div class="col-12">
         
         <% for(var i=0; i < users.length; i++) { %>
             <ul class="userlist" data-userid="<%= users[i]._id %>">
@@ -33,6 +37,7 @@
                     <button class="approveuser">Approve</button>
                     <button class="deleteuser">Remove</button>
                     <button class="modifyuser">Modify</button>
+                    <a href="../submitform/<%= users[i]._id %>?first=<%= users[i].firstname %>&last=<%= users[i].lastname %>"><button class="addvisit">Add Visit</button></a>
                 
                     <br>
                     <form class="modify-user hide">
@@ -52,6 +57,9 @@
                         <br>
                         <input type="text" name="email" value="<%= users[i].local.email %>">
                         
+                        <br> Password:
+                        <br>
+                        <input type="password" name="password" value="<%= users[i].local.password %>">
                         <br> Please select your school:
                         <br>
                         <select name="schools">
@@ -74,6 +82,7 @@
             </form>
         </ul>
             <% } %>
+        </div>
         </div>
         </container>
     <% } %>

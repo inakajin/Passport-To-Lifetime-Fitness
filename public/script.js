@@ -80,9 +80,21 @@ $(document).on("keyup","#studentid",function(){
     for (i = 0; i < x.length; i++) {
         x[i].style.display = "none"; 
     }
-    document.getElementById(cityName).style.display = "block"; 
+    document.getElementById(cityName).style.display = "block";
+    $("input.myInput").val("").trigger("keyup") 
 }
  
+
+$(document).ready(function(){
+  $(".myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $(".userlist-container ul").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+
+
 //var input = document.getElementById('studentid');
 //input.oninvalid = function(event) {
 //    event.target.setCustomValidity('The Student ID must be 7 numbers.');
