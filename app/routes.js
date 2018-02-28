@@ -90,6 +90,15 @@ module.exports = function(app, passport) {
       });
   })
 
+  app.post("/profile/deletevisit", isLoggedIn, function(req, res) {
+    console.log(req.body);
+    Visit.remove({_id: req.body.id},
+      function(error, doc){
+        console.log(doc, error, " removed");
+        res.json({success:true});
+      });
+  });
+
   // show the home page (will also have our login links)
   app.get("/", function(req, res) {
     res.render("index.ejs");

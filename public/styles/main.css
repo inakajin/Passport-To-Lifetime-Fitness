@@ -372,7 +372,7 @@ form.example::after {
   font-weight: bold;  
   }
 
-  button.modifyuser, button.approveuser, button.addvisit, button.validatevisit {
+  button.modifyuser, button.approveuser, button.addvisit, button.validatevisit, button.approve {
     background-color: #006600;
     color: white;
     font-family: 'Montserrat', sans-serif;

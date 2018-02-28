@@ -9,15 +9,14 @@
         </header>
 
 
-    <div class="container">
+        <div class="submit-form-container">
+                <div class="col-12">
 
         
             <% if (visit) { %>
                 <div><%= `${visit.activitylist} ${visit.userid}`%>
                 </div>
-                <div>
-                    <button class="approve">Approve</button>
-                </div>
+                
                 <div class="notification">
                     
 
@@ -26,9 +25,9 @@
                  <% } else {    %>
                     Unapproved
                     <form action="" method="POST">
-        
                         <br>
-                        Please select the activity you participated in today: 
+                        <br>
+                        Please select the activity you participated in today:<br>
                             <label>
                                 <input type="radio" name="activitylist" value="basketball" <%= visit.activitylist == "basketball" ? "checked" : "" %>/>Basketball
                             </label>
@@ -41,13 +40,15 @@
                             <label>
                                 <input type="radio" name="activitylist" value="martial arts" <%= visit.activitylist == "martial arts" ? "checked" : "" %>/>Martial Arts
                             </label>
-                        <br>
-                        <br>
-                        <h2>PRE­SESSION:</h2>
-                            This section refers to how you were feeling before <span class="activity">activity</span>.
-                        <br>
-                        <br>
-                        Today, I felt: 
+                            <br>
+                            <br>
+                            <h3>Pre-session:</h3>
+                            <p>
+                                <i>This section refers to how you were feeling before <span class="activity">activity</span>.</i>
+                            </p>
+                                <br>
+                            <br>
+                        Today, I felt:<br> 
                             <label>
                                 <input type="radio" name="presession" value="great" <%= visit.presession == "great" ? "checked" : "" %>/>Great
                             </label>
@@ -61,7 +62,8 @@
                                 <input type="radio" name="presession" value="ill" <%= visit.presession == "ill" ? "checked" : "" %>/>Ill
                             </label>
                         <br>
-                        Overall, I feel that my health is: 
+                        <br>
+                        Overall, I feel that my health is:<br> 
                         <label>
                             <input type="radio" name="health" value="very good" <%= visit.health == "very good" ? "checked" : "" %>/>Very good
                         </label>
@@ -74,20 +76,23 @@
                         <label>
                             <input type="radio" name="health" value="very bad" <%= visit.health == "very bad" ? "checked" : "" %>/>Very bad
                         </label>
-                    <br>
-                    <br>
-                    <h2>POSTSESSION:</h2>
-                        This section refers to how you felt after <span class="activity">activity</span>:
-                    <br>
-                    The BEST part of activity was:<br>
+                        <br>
+                        <br>
+                        <h3>Post-session:</h3>
+                            <p>
+                               <i>This section refers to how you felt after <span class="activity">activity</span>.</i>
+                            </p>
+                                <br>
+                    The <b>BEST</b> part of <span class="activity">activity</span> was:<br>
                     <input type="text" value="<%= visit.bestpart %>" name="bestpart">
+                     <br>
                     <br>
-                    The WORST part of activity was:<br>
+                    The <b>WORST</b> part of <span class="activity">activity</span> was:<br>
                     <input type="text" value="<%= visit.worstpart %>" name="worstpart">
                     <br>
                     <br>
-                    After participating in <span class="activity">activity</span>, I would do <span class="activity">activity</span> on my own.
-                    <br>
+    After participating in <span class="activity">activity</span>, I would do <span class="activity">activity</span> on my own.
+    <br>
                     <label>
                             <input type="radio" name="postsession" value="strongly agree" <%= visit.postsession == "strongly agree" ? "checked" : "" %>/>Strongly Agree
                         </label>
@@ -104,6 +109,9 @@
                     <br>
                     <input type="submit" class="buttons-basic" value="Submit">
                     <br>
+                    <div>
+                            <button class="approve">Approve</button>
+                        </div>
                     <br>
                     <h3>Thank you for completing the Passport to Lifetime Fitness!</h3>
                     <br>
@@ -113,7 +121,8 @@
                 </div>
             <% } %>
 
-            
+            </div>
+            </div>        
     </div>
     <footer>
             <% include includes/footer.ejs %>    

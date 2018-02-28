@@ -33,6 +33,15 @@ $('button.deleteuser').click(function(e) {
     })
 });
 
+$('button.deletevisit').click(function(e) {
+    //let id=$(this).parent().data('userid');
+    let id=$(this).closest('ul').data('visitid')
+    $.post("/deletevisit", {id: id}, function(data, status){
+        console.log(data);
+        $(`[data-userid="${id}"]`).remove();
+    })
+});
+
 $('button.modifyuser').click(function(e) {
     window.t=this;
     console.log(this);
