@@ -128,6 +128,20 @@ function change(data) {
 	slice.enter()
 		.insert("path")
 		.attr("class", "slice")
+		.on("mouseover", function (d) {
+			console.log(d)
+			d3.select("#tooltip")
+				.style("left", d3.event.pageX - 200 + "px")
+				.style("top", d3.event.pageY - 200 + "px")
+				.style("opacity", 1)
+				.select("#value")
+				.text(d.value);
+		})
+			.on("mouseout", function () {
+			// Hide the tooltip
+			d3.select("#tooltip")
+				.style("opacity", 0);
+		})
 		//.append("svg:title") .text(function(d) { return d.data.label; })
 		.style("fill", function(d) { return color(d.data.label); })
 		.each(function(d) {

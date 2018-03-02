@@ -283,6 +283,8 @@ color: black;
 .searchbar button {
   color: white;
   background-color: #006600;
+  border: 1px solid gray;
+  width: 15%;
 }
 
 
@@ -372,7 +374,7 @@ form.example::after {
   font-weight: bold;  
   }
 
-  button.modifyuser, button.approveuser, button.addvisit, button.validatevisit, button.approve {
+  button.modifyuser, button.approveuser, button.addvisit, button.validatevisit, .approvevisit {
     background-color: #006600;
     color: white;
     font-family: 'Montserrat', sans-serif;

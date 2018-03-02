@@ -4,7 +4,7 @@ $( "input[name='activitylist']" ).change(function(e){
 })
 //alert("testing");
 //Approval button logic
-$("button.approve").click(function (e) {
+$(".approvevisit").click(function (e) {
     //console.log("Approval Test")
     $.post("", function(data, status){
         console.log("Data: " + data + "\nStatus: " + status);
@@ -35,10 +35,12 @@ $('button.deleteuser').click(function(e) {
 
 $('button.deletevisit').click(function(e) {
     //let id=$(this).parent().data('userid');
-    let id=$(this).closest('ul').data('visitid')
-    $.post("/deletevisit", {id: id}, function(data, status){
+    let par = $(this).closest('ul')
+    let id=par.data('visitid')
+    console.log(id);
+    $.post("/profile/deletevisit", {id: id}, function(data, status){
         console.log(data);
-        $(`[data-userid="${id}"]`).remove();
+        par.remove();
     })
 });
 

@@ -11,12 +11,11 @@
         </header>
     
     <div class="container">
-               
-
+            
         <div class="row tab-container">
             
 
-            <% if (user) { %>
+            <% if (user.active) { %>
                 
             <div class="welcome-message">
                 <p>
@@ -26,11 +25,11 @@
                         <br>   
                 </p>
             </div>
-                <% if (visits) { %>
+            <% if (visits) { %>
                     <% data= JSON.stringify(visits) %>
                     <% include includes/piechart.ejs %>
                <% } %>
-                <% } %>
+                
             
                 <% if (user.admin == "on"){ %>
             
@@ -62,8 +61,10 @@
                         <p>Tokyo is the capital of Japan.</p>
                       </div>
                       
-                      
                       <% } %>
+                    <% } else { %>
+                      Your profile is pending approval.
+                    <% } %>
                     </div>
                     
                     

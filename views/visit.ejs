@@ -13,17 +13,13 @@
                 <div class="col-12">
 
         
-            <% if (visit) { %>
-                <div><%= `${visit.activitylist} ${visit.userid}`%>
-                </div>
+            
+                
                 
                 <div class="notification">
                     
 
-                   <% if (visit.approved) { %>
-                    Approved!
-                 <% } else {    %>
-                    Unapproved
+                 
                     <form action="" method="POST">
                         <br>
                         <br>
@@ -106,20 +102,27 @@
                             <input type="radio" name="postsession" value="strongly disagree" <%= visit.postsession == "strongly disagree" ? "checked" : "" %>/>Strongly Disagree
                         </label>
                     <br>   
+                    
                     <br>
-                    <input type="submit" class="buttons-basic" value="Submit">
-                    <br>
-                    <div>
-                            <button class="approve">Approve</button>
-                        </div>
+                    <input type="submit" class="approvevisit" value="Submit">
+                    
+                    <a href = "../profile"><button class"cancel-update"=>Cancel</button></a>
+                   
+                    
                     <br>
                     <h3>Thank you for completing the Passport to Lifetime Fitness!</h3>
                     <br>
                     </form>
 
-                <% } %>
+               
                 </div>
-            <% } %>
+                <% if (visit) { %>
+                <% if (visit.approved) { %>
+                    Approved!
+                 <% } else {    %>
+                    Unapproved
+                    <% } %>
+                <% } %>
 
             </div>
             </div>        

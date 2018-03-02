@@ -5,10 +5,12 @@ module.exports = function(app, passport) {
     res.render("submitform.ejs", {user:req.user});
   });
 
+//This is the logic to retrieve the form to use to submit a visit  
   app.get("/submitform/:id", isLoggedIn, function(req, res) {
     res.render("submitform.ejs", {user:req.user});  
   });
-    
+ 
+//This is the logic to submit a visit    
   app.post("/submitform", isLoggedIn, function(req, res) {
     let visit = new Visit(req.body);
 
@@ -20,13 +22,10 @@ module.exports = function(app, passport) {
     res.redirect("/profile");
     });
   });
- 
+
+//This is the logic to allow an admin to submit a visit for a user  
     app.post("/submitform/:id", isLoggedIn, function(req, res) {
     console.log(req.body, req.user, req.params, req.query);
-    //       User.update({_id:req.user._id}, {$set:{firstname:req.body.firstname, lastname:req.body.lastname}},function(err,doc){
-    //          console.log(err,doc);
-    //            res.redirect("/profile");
-    //        });
     let visit = new Visit(req.body);
     
       visit.userid = req.params.id;
@@ -37,40 +36,23 @@ module.exports = function(app, passport) {
     visit.save(function(err) {
     res.redirect("/profile");
     });
-  });
-
-  /*app.post("/form", isLoggedIn, function(req, res) {
-    console.log(req.body, req.user, req.params, req.query);
-    //       User.update({_id:req.user._id}, {$set:{firstname:req.body.firstname, lastname:req.body.lastname}},function(err,doc){
-    //          console.log(err,doc);
-    //            res.redirect("/profile");
-    //        });
-    let visit = new Visit(req.body);
-    visit.userid = req.user._id;
-    visit.date = new Date();
-    visit.save(function(err) {
-      res.redirect("/profile");
-    });
-  });*/
-
-  
-
-
+  });  
 
   // normal routes ===============================================================
+  
+  //This brings up a submitted visit to be approved by an admin
   app.get("/approvalform/:id", function(req, res) {
     console.log(req.params);
-    console.log("hippopotamus");
     Visit.findOne({_id: req.params.id}).exec().then(visit => {
       res.render("visit.ejs", {
         user: req.user, 
-        //admin: admin
         visit: visit
       });
-      //console.log(visit)
     }).catch(err => { throw err })
   })
 
+
+//This submits an approved visit and flips the approved tag to true
   app.post("/approvalform/:id", function(req, res) {
     console.log(req.params);
     console.log(req.body);
@@ -86,10 +68,12 @@ module.exports = function(app, passport) {
     } }, 
       function(error, doc){
         console.log(doc, error, " updated");
-        res.json({success:true});
+        res.redirect("/profile");
       });
   })
 
+
+//This is the logic that allows an admin to delete a visit
   app.post("/profile/deletevisit", isLoggedIn, function(req, res) {
     console.log(req.body);
     Visit.remove({_id: req.body.id},
@@ -99,12 +83,13 @@ module.exports = function(app, passport) {
       });
   });
 
-  // show the home page (will also have our login links)
+//This shows the home page (will also have our login links)
   app.get("/", function(req, res) {
     res.render("index.ejs");
   });
 
   // PROFILE SECTION =========================
+//This retrieves the users profile page
   app.get("/profile", isLoggedIn, function(req, res) {
     console.log(req.user);
     let admin;
@@ -142,6 +127,7 @@ module.exports = function(app, passport) {
         });
   });
 
+//This allows an admin to approve a registered user  
   app.post("/profile/approveuser", isLoggedIn, function(req, res) {
     console.log(req.body);
     User.update({_id: req.body.id}, {$set: {active:true}}, 
@@ -151,6 +137,7 @@ module.exports = function(app, passport) {
       });
   });
 
+//This gives a registered user admin privileges
   app.post("/profile/adminpromote", isLoggedIn, function(req, res) {
     console.log(req.body);
     User.update({_id: req.body.id}, {$set: {admin:on}}, 
@@ -160,6 +147,7 @@ module.exports = function(app, passport) {
       });
   });
 
+//This allows an admin to delete a user  
   app.post("/profile/deleteuser", isLoggedIn, function(req, res) {
     console.log(req.body);
     User.remove({_id: req.body.id},
@@ -169,13 +157,15 @@ module.exports = function(app, passport) {
       });
   });
 
+//This allows an admin to update a user profile  
   app.post("/profile/updateuser", isLoggedIn, function(req, res) {
     console.log(req.body, "Mickey", req.params, req.query);
     User.update({_id: req.body.id}, {$set: {
           firstname: req.body.firstname,
           lastname: req.body.lastname,
           studentid: req.body.studentid,
-          admin: req.body.admin     
+          admin: req.body.admin, 
+          school: req.body.school,     
     }
  },
       function(error, doc){
