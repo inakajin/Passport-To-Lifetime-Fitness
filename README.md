@@ -4,6 +4,10 @@ This was originally forked from Easy Node Authentication, mentioned below. Those
 ## Instructions and Usage
 This app was designed for a program being piloted for a large urban school system. It is a partnership with organizations, such as the Boys and Girls Club, to encourage fitness in students. Students that are part of the pilot program participate in one of 4 activities. The app tracks their participation so the teachers can make better decisions.
 
+## Student use examples
+Students can Register:
+![alt text](screenshots/register.png "Registration")
+
 
 
 # Easy Node Authentication
