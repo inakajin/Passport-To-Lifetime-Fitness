@@ -1,28 +1,30 @@
 <nav>
-                <input type="checkbox" id="nav" class="hidden"/>
-                <label for="nav" class="nav-open"><i></i><i></i><i></i></label>
-                <h1 id="logo">
-                                <span class="fa fa-heart-o"></span> 
-                                <a href="../">Passport to Lifetime Fitness</a>
-                </h1>
-                <div class="nav-container">
+        <input type="checkbox" id="nav" class="hidden" />
+        <label for="nav" class="nav-open">
+                <i></i>
+                <i></i>
+                <i></i>
+        </label>
+        <h1 id="logo">
+                <span class="fa fa-heart-o"></span>
+                <a href="../" aria-label="This is a link to the home page.">Passport to Lifetime Fitness</a>
+        </h1>
+        <div class="nav-container">
                 <% if (typeof user != "undefined") { %>
-                  <ul>
-                    <li><a href="../">Home</a></li>
-                    <li><a href="../profile">My Profile</a></li>
-                    <li><a href="../submitform">Add Visit</a></li>
-                    <li><a href="../logout">Logout</a></li>
-                  </ul>
-                <% } %>
-                </div>
-              </nav>
-<!--<header>
-        <div class="row">
-                <div class="col-12">
-                        <h1>
-                            <span class="fa fa-heart-o"></span> 
-                            <a href="./">Passport to Lifetime Fitness</a>
-                        </h1>
-                </div>
+                        <ul>
+                                <li>
+                                        <a href="../" aria-label="This is a link to the home page.">Home</a>
+                                </li>
+                                <li>
+                                        <a href="../profile" aria-label="This is a link to your profile page.">My Profile</a>
+                                </li>
+                                <li>
+                                        <a href="../submitform" aria-label="This is a link for a student to add a visit.">Add Visit</a>
+                                </li>
+                                <li>
+                                        <a href="../logout" aria-label="This logs you out.">Logout</a>
+                                </li>
+                        </ul>
+                        <% } %>
         </div>
-</header>-->
+</nav>

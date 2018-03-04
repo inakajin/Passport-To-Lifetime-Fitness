@@ -1,110 +1,118 @@
 <!doctype html>
 <html>
-<head>
-        <% include includes/head.ejs %>
-</head>
-<body>
-        <header>
-                <% include includes/header.ejs %>
-        </header>
-<div class="submit-form-container">
-                <div class="col-12">   
-    <form action="" method="POST">
-      
-        <br>
-        <br>
-        Please select the activity you participated in today:<br>
-            
-            <label>
-                <input type="radio" name="activitylist" value="basketball"/>Basketball
-            </label>
-       
-            <label>
-                <input type="radio" name="activitylist" value="yoga"/>Yoga
-            </label>
-            <label>
-                <input type="radio" name="activitylist" value="swimming"/>Swimming
-            </label>
-            <label>
-                <input type="radio" name="activitylist" value="martial arts"/>Martial Arts
-            </label>
-        <br>
-        <br>
-        <h3>Pre-session:</h3>
-        <p>
-            <i>This section refers to how you were feeling before <span class="activity">activity</span>.</i>
-        </p>
-            <br>
-        <br>
-        Today, I felt:<br> 
-            <label>
-                <input type="radio" name="presession" value="great"/>Great
-            </label>
-            <label>
-                <input type="radio" name="presession" value="good"/>Good
-            </label>
-            <label>
-                <input type="radio" name="presession" value="ok"/>OK
-            </label>
-            <label>
-                <input type="radio" name="presession" value="ill"/>Ill
-            </label>
-        <br>
-        <br>
-        Overall, I feel that my health is:<br> 
-        <label>
-            <input type="radio" name="health" value="very good"/>Very good
-        </label>
-        <label>
-            <input type="radio" name="health" value="good"/>Good
-        </label>
-        <label>
-            <input type="radio" name="health" value="bad"/>Bad
-        </label>
-        <label>
-            <input type="radio" name="health" value="very bad"/>Very bad
-        </label>
-    <br>
-    <br>
-    <h3>Post-session:</h3>
-        <p>
-           <i>This section refers to how you felt after <span class="activity">activity</span>.</i>
-        </p>
-            <br>
-    The <b>BEST</b> part of <span class="activity">activity</span> was:<br>
-    <input type="text" name="bestpart">
-    <br>
-    <br>
-    The <b>WORST</b> part of <span class="activity">activity</span> was:<br>
-    <input type="text" name="worstpart">
-    <br>
-    <br>
-    After participating in <span class="activity">activity</span>, I would do <span class="activity">activity</span> on my own.
-    <br>
-    <label>
-            <input type="radio" name="postsession" value="strongly agree"/>Strongly Agree
-        </label>
-        <label>
-            <input type="radio" name="postsession" value="agree"/>Agree
-        </label>
-        <label>
-            <input type="radio" name="postsession" value="disagree"/>Disagree
-        </label>
-        <label>
-            <input type="radio" name="postsession" value="strongly disagree"/>Strongly Disagree
-        </label>
-    <br>   
-    <br>
-    <input type="submit" class="submit-visit" value="Submit">
-    <br>
-    <br>
-    <h3>Thank you for completing the Passport to Lifetime Fitness!</h3>
-    <br>
-    </form>
-</div>
-</div>
-<footer>
-        <% include includes/footer.ejs %>    
-</footer>
-</body>
 
+<head>
+    <% include includes/head.ejs %>
+</head>
+
+<body>
+    <header>
+        <% include includes/header.ejs %>
+    </header>
+    <div class="submit-form-container">
+        <div class="col-12">
+            <form action="" method="POST">
+
+                <br>
+                <br> Please select the activity you participated in today:
+                <br>
+
+                <label>
+                    <input type="radio" name="activitylist" value="basketball" />Basketball
+                </label>
+
+                <label>
+                    <input type="radio" name="activitylist" value="yoga" />Yoga
+                </label>
+                <label>
+                    <input type="radio" name="activitylist" value="swimming" />Swimming
+                </label>
+                <label>
+                    <input type="radio" name="activitylist" value="martial arts" />Martial Arts
+                </label>
+                <br>
+                <br>
+                <h3>Pre-session:</h3>
+                <p>
+                    <i>This section refers to how you were feeling before
+                        <span class="activity">activity</span>.</i>
+                </p>
+                <br>
+                <br> Today, I felt:
+                <br>
+                <label>
+                    <input type="radio" name="presession" value="great" />Great
+                </label>
+                <label>
+                    <input type="radio" name="presession" value="good" />Good
+                </label>
+                <label>
+                    <input type="radio" name="presession" value="ok" />OK
+                </label>
+                <label>
+                    <input type="radio" name="presession" value="ill" />Ill
+                </label>
+                <br>
+                <br> Overall, I feel that my health is:
+                <br>
+                <label>
+                    <input type="radio" name="health" value="very good" />Very good
+                </label>
+                <label>
+                    <input type="radio" name="health" value="good" />Good
+                </label>
+                <label>
+                    <input type="radio" name="health" value="bad" />Bad
+                </label>
+                <label>
+                    <input type="radio" name="health" value="very bad" />Very bad
+                </label>
+                <br>
+                <br>
+                <h3>Post-session:</h3>
+                <p>
+                    <i>This section refers to how you felt after
+                        <span class="activity">activity</span>.</i>
+                </p>
+                <br> The
+                <b>BEST</b> part of
+                <span class="activity">activity</span> was:
+                <br>
+                <input type="text" name="bestpart">
+                <br>
+                <br> The
+                <b>WORST</b> part of
+                <span class="activity">activity</span> was:
+                <br>
+                <input type="text" name="worstpart">
+                <br>
+                <br> After participating in
+                <span class="activity">activity</span>, I would do
+                <span class="activity">activity</span> on my own.
+                <br>
+                <label>
+                    <input type="radio" name="postsession" value="strongly agree" />Strongly Agree
+                </label>
+                <label>
+                    <input type="radio" name="postsession" value="agree" />Agree
+                </label>
+                <label>
+                    <input type="radio" name="postsession" value="disagree" />Disagree
+                </label>
+                <label>
+                    <input type="radio" name="postsession" value="strongly disagree" />Strongly Disagree
+                </label>
+                <br>
+                <br>
+                <input type="submit" class="submit-visit" value="Submit">
+                <br>
+                <br>
+                <h3>Thank you for completing the Passport to Lifetime Fitness!</h3>
+                <br>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <% include includes/footer.ejs %>
+    </footer>
+</body>

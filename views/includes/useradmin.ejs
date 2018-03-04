@@ -74,8 +74,8 @@
                                 <input type="checkbox" name="admin" <%=users[i].admin=="on" ? "checked":null %>
                                 <label>Admin</label>
                         <br>
-                        <button class="cancel-update">Cancel</button>
-                        <input type="submit" value="Submit">
+                        <button class="cancel-update" aria-label="This cancels the pending user attribute changes">Cancel</button>
+                        <input type="submit" value="Submit" aria-label="This submits the modified user attributes.">
                         
                         <% } %>
             

@@ -1,78 +1,78 @@
 <!doctype html>
 <html>
+
 <head>
-                <% include includes/head.ejs %>
+    <% include includes/head.ejs %>
 </head>
+
 <body>
-        <header>
-                <% include includes/header.ejs %>
-        </header>
-<div class="container">
-<div class="col-sm-6 col-sm-offset-3">
+    <header>
+        <% include includes/header.ejs %>
+    </header>
+    <div class="container">
+        <div class="col-sm-6 col-sm-offset-3">
 
-    
 
-    <% if (message.length > 0) { %>
-        <div class="alert alert-danger"><%= message %></div>
-    <% } %>
 
-    <!-- LOGIN FORM -->
-    <form action="/signup" method="post">
-        <div class="form-group">
-            <label>Email</label>
-            <input type="text" class="form-control" name="email" required>
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" name="password" required>
-        </div>
-        <div class="form-group">
-        <label>First name:</label>
-        <input type="text" class="form-control" name="firstname" required>
-        </div> 
-        <div class="form-group">
-        <label>Last name:</label>
-        <input type="text" class="form-control" name="lastname" required>
-        </div>
-        <div class="form-group">
-        <label>Student ID:</label>
-        <input type="text" 
-        class="form-control" 
-        name="studentid" 
-        required
-        pattern="^\d{7}$"  
-        maxlength="7"        
-        id="studentid" 
-        title="The Student ID must be 7 numbers.">
-        </div>
-        <div class="form-group">        
-        <label>Please select your school:</label>
-        <select name="school">
-                <option value="School A">School A</option>
-                <option value="School B">School B</option>
-                <option value="School C">School C</option>
-                <option value="School D">School D</option>
-                <option value="School E">School E</option>
-        </select>
-        </div>
-        <br>
+            <% if (message.length > 0) { %>
+                <div class="alert alert-danger">
+                    <%= message %>
+                </div>
+                <% } %>
 
-        <div class="form-group">
-        <button type="submit" class="signup">Signup</button>
+                    <!-- LOGIN FORM -->
+                    <form action="/signup" method="post">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" class="form-control" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label>First name:</label>
+                            <input type="text" class="form-control" name="firstname" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last name:</label>
+                            <input type="text" class="form-control" name="lastname" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Student ID:</label>
+                            <input type="text" class="form-control" name="studentid" required pattern="^\d{7}$" maxlength="7" id="studentid" title="The Student ID must be 7 numbers.">
+                        </div>
+                        <div class="form-group">
+                            <label>Please select your school:</label>
+                            <select name="school">
+                                <option value="School A">School A</option>
+                                <option value="School B">School B</option>
+                                <option value="School C">School C</option>
+                                <option value="School D">School D</option>
+                                <option value="School E">School E</option>
+                            </select>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <button type="submit" class="signup">Signup</button>
+                        </div>
+                    </form>
+
+                    <hr>
+
+                    <p>Already have an account?
+                        <a href="/login">Login</a>
+                    </p>
+                    <p>Or go
+                        <a href="/">home</a>.</p>
+
+
+        </div>
     </div>
-    </form>
-
-    <hr>
-
-    <p>Already have an account? <a href="/login">Login</a></p>
-    <p>Or go <a href="/">home</a>.</p>
-
-
-</div>
-</div>
-<footer>
+    <footer>
         <% include includes/footer.ejs %>
-</footer>
+    </footer>
 </body>
 
 </html>

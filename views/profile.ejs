@@ -2,75 +2,77 @@
 <html>
 
 <head>
-        <% include includes/head.ejs %>
+    <% include includes/head.ejs %>
 </head>
 
 <body>
-        <header>
-                <% include includes/header.ejs %>
-        </header>
-    
+    <header>
+        <% include includes/header.ejs %>
+    </header>
+
     <div class="container">
-            
+
         <div class="row tab-container">
-            
+
 
             <% if (user.active) { %>
-                
-            <div class="welcome-message">
-                <p>
-                    <strong>Hello, 
-                    <%= user.firstname %>.
-                    </strong>
-                        <br>   
-                </p>
-            </div>
-            <% if (visits) { %>
-                    <% data= JSON.stringify(visits) %>
-                    <% include includes/piechart.ejs %>
-               <% } %>
-                
-            
-                <% if (user.admin == "on"){ %>
-            
-                <div class="searchbar">
-                    <p>Type something in the input field to search for first names, last names or emails:</p>
-                
-                <input class="myInput" type="text" placeholder="Search..">
-                <button type="submit"><i class="fa fa-search search-button"></i></button>
-                </div>
 
-                <div class="tab-buttons">
-                        <button class="w3-bar-item w3-button buttons-basic" onclick="openCity('London')">User Admin</button>
-                        <button class="w3-bar-item w3-button buttons-basic" onclick="openCity('Paris')">Visit Admin</button>
-                        <button class="w3-bar-item w3-button buttons-basic" onclick="openCity('Tokyo')">Form Admin</button>
+                <div class="welcome-message">
+                    <p>
+                        <strong>Hello,
+                            <%= user.firstname %>.
+                        </strong>
+                        <br>
+                    </p>
                 </div>
-                
-                <div id="London" class="city">
-                        <h2>User Administration</h2>
-                        <% include includes/useradmin.ejs %>
-                      </div>
-                      
-                      <div id="Paris" class="city" style="display:none">
-                        <h2>Visit Admin</h2> 
-                        <% include includes/visitadmin.ejs %>
-                      </div>
-                      
+                <% if (visits) { %>
+                    <% data= JSON.stringify(visits) %>
+                        <% include includes/piechart.ejs %>
+                            <% } %>
+
+
+                                <% if (user.admin == "on"){ %>
+
+                                    <div class="searchbar">
+                                        <p>Type something in the input field to search for first names, last names or emails:</p>
+
+                                        <input class="myInput" type="text" placeholder="Search..">
+                                        <button type="submit">
+                                            <i class="fa fa-search search-button"></i>
+                                        </button>
+                                    </div>
+
+                                    <div class="tab-buttons">
+                                        <button class="w3-bar-item w3-button buttons-basic" onclick="openCity('London')" aria-label="This displays the user admin tab.">User Admin</button>
+                                        <button class="w3-bar-item w3-button buttons-basic" onclick="openCity('Paris')" aria-label="This displays the visit admin tab.">Visit Admin</button>
+                                        <!--This will be a future enhancement<button class="w3-bar-item w3-button buttons-basic" onclick="openCity('Tokyo')">Form Admin</button>-->
+                                    </div>
+
+                                    <div id="London" class="city">
+                                        <h2>User Administration</h2>
+                                        <% include includes/useradmin.ejs %>
+                                    </div>
+
+                                    <div id="Paris" class="city" style="display:none">
+                                        <h2>Visit Admin</h2>
+                                        <% include includes/visitadmin.ejs %>
+                                    </div>
+                                    <!--This will be a future enhancement
                       <div id="Tokyo" class="city" style="display:none">
                         <h2>Form Admin</h2>
                         <p>Tokyo is the capital of Japan.</p>
-                      </div>
-                      
-                      <% } %>
-                    <% } else { %>
-                      Your profile is pending approval.
-                    <% } %>
-                    </div>
-                    
-                    
-    <footer>
-                <% include includes/footer.ejs %>            
-    </footer>
-    </body>
+                      </div>-->
+
+                                    <% } %>
+                                        <% } else { %>
+                                            <div class="welcome-message">Your profile is pending approval.</div>
+                                            <% } %>
+        </div>
+
+
+        <footer>
+            <% include includes/footer.ejs %>
+        </footer>
+</body>
 
 </html>

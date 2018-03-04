@@ -175,9 +175,6 @@ module.exports = function(app, passport) {
     });
   });
 
-// Password Reset and Forgot Password
-
-
   // LOGOUT ==============================
   app.get("/logout", function(req, res) {
     req.logout();
