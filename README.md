@@ -1,3 +1,11 @@
+# Passport-To-Lifetime-Fitness
+This was originally forked from Easy Node Authentication, mentioned below. Those templates were used for the authentication mechanism. See below for additional detail on this.
+
+## Instructions and Usage
+This app was designed for a program being piloted for a large urban school system. It is a partnership with organizations, such as the Boys and Girls Club, to encourage fitness in students. Students that are part of the pilot program participate in one of 4 activities. The app tracks their participation so the teachers can make better decisions.
+
+
+
 # Easy Node Authentication
 
 Code for the entire scotch.io tutorial series: Complete Guide to Node Authentication
