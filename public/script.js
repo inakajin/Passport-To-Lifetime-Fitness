@@ -40,6 +40,43 @@ $("button.deleteuser").click(function(e) {
   });
 });
 
+//View specific students visit history
+$("button.pie-student").click(function(e) {
+    let id = $(this)
+        .closest("ul")
+        .data("userid");
+        //let type="health"
+        //change(constructData(JSON.parse(visitData), dataTitles[type], null, id));
+        //$.post("/profile/pie-student", { id: id }, function(data, status) {
+        //    console.log(data);
+        //  });
+        console.log(visitData)
+        const tempData=visitData
+        visitData=JSON.parse(tempData).filter(function (el) {
+            console.log(el)
+            return el.userid == id
+    })
+    reset()
+  console.log(visitData)  
+    visitData = JSON.stringify(visitData)
+console.log(visitData);
+    change(
+        constructData(
+          JSON.parse(visitData),
+          dataTitles["activitylist"],
+          "activitylist"
+        )
+      );
+
+    console.log(visitData)
+})
+//d3.selectAll(".toggledata").on("click", function() {
+    //console.log(this.data-type);
+//    let type = $(this).data("type");
+//    console.log(dataTitles[type]);
+//    change(constructData(JSON.parse(visitData), dataTitles[type], type));
+    //change(randomData());
+//  });
 //Visit deletion button logic
 $("button.deletevisit").click(function(e) {
   //let id=$(this).parent().data('userid');
@@ -79,9 +116,20 @@ $("form.modify-user").submit(function(e) {
     .find("input");
   var values = {};
   inputs.each(function() {
-    values[this.name] = $(this).val();
+    if (!$(this).is(":checked") && this.name=="admin")
+    {
+        console.log(this)
+        values[this.name] = "off"
+    }
+    else 
+    {
+        values[this.name] = $(this).val()
+    }
+    
+    console.log(this);
+    console.log($(this).val());
   });
-  console.log(values);
+  console.log (JSON.stringify(values));
   let id = $(this)
     .closest("ul")
     .data("userid");

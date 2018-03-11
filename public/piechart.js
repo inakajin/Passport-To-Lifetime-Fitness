@@ -1,7 +1,8 @@
 if (visitData) {
   console.log(visitData);
 }
-
+let dataTitles={}
+function reset() {
 let activitylist = [
   { label: "basketball", value: 0 },
   { label: "swimming", value: 0 },
@@ -27,13 +28,15 @@ let postsession = [
   { label: "strongly disagree", value: 0 }
 ];
 let approved = [{ label: "true", value: 0 }, { label: "false", value: 0 }];
-let dataTitles = {
+dataTitles = {
   activitylist: activitylist,
   presession: presession,
   health: health,
   postsession: postsession,
   approved: approved
 };
+}
+reset()
 function constructData(visitData, data, dataTitle) {
   visitData.forEach(function(visit) {
     console.log(visit[dataTitle]);
@@ -195,7 +198,7 @@ function change(data) {
         .style("top", d3.event.pageY - 200 + "px")
         .style("opacity", 1)
         .select("#value")
-        .text(d.value);
+        .text(d.data.label + " :" + d.value);
     })
     .on("mouseout", function() {
       // Hide the tooltip

@@ -38,6 +38,7 @@
                     <button class="deleteuser">Remove</button>
                     <button class="modifyuser">Modify</button>
                     <a href="../submitform/<%= users[i]._id %>?first=<%= users[i].firstname %>&last=<%= users[i].lastname %>"><button class="addvisit">Add Visit</button></a>
+                    <button class="pie-student">Pie-Student</button>
                 
                     <br>
                     <form class="modify-user hide">
@@ -71,7 +72,7 @@
                         </select>
                         <br>
                         
-                                <input type="checkbox" name="admin" <%=users[i].admin=="on" ? "checked":null %>
+                                <input type="checkbox" name="admin" <%=users[i].admin=="on" ? "checked":"unchecked" %>
                                 <label>Admin</label>
                         <br>
                         <button class="cancel-update" aria-label="This cancels the pending user attribute changes">Cancel</button>

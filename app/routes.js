@@ -91,7 +91,7 @@ module.exports = function(app, passport) {
   // PROFILE SECTION =========================
 //This retrieves the users profile page
   app.get("/profile", isLoggedIn, function(req, res) {
-    console.log(req.user);
+    //console.log(req.user);
     let admin;
     let query;
     if (req.user.admin) {
@@ -106,11 +106,10 @@ module.exports = function(app, passport) {
        .exec()
        .then(users => {
         users=users;
-  console.log("zebra");
           Visit.find(query)
             .exec()
             .then(visits => {
-              console.log(visits)
+      //        console.log(visits)
               res.render("profile.ejs", {
                 user: req.user,
                 visits: visits.reverse(),
@@ -157,6 +156,22 @@ module.exports = function(app, passport) {
       });
   });
 
+//This allows an admin to view a specific users visit history
+app.post("/profile/pie-student", isLoggedIn, function(req, res) {
+  console.log(req.body)
+  Visit.find()
+            .exec()
+            .then(visits => {
+      //        console.log(visits)
+              res.render("includes/piechart.ejs", {
+                data: "hello"
+              });
+            })
+            .catch(err => {
+              throw err;
+            });
+})
+
 //This allows an admin to update a user profile  
   app.post("/profile/updateuser", isLoggedIn, function(req, res) {
     console.log(req.body, "Mickey", req.params, req.query);
@@ -164,6 +179,7 @@ module.exports = function(app, passport) {
           firstname: req.body.firstname,
           lastname: req.body.lastname,
           studentid: req.body.studentid,
+          //"local.$.password": req.body.password,
           admin: req.body.admin, 
           school: req.body.school,     
     }
