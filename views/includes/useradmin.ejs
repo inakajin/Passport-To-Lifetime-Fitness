@@ -63,7 +63,8 @@
                         <input type="password" name="password" value="<%= users[i].local.password %>">
                         <br> Please select your school:
                         <br>
-                        <select name="schools">
+                        <%=users[i].school %>
+                        <select name="schools" class="schools">
                             <option <%=users[i].school=="School A" ? "selected":null %> value="School A">School A</option>
                             <option <%=users[i].school=="School B" ? "selected":null %> value="School B">School B</option>
                             <option <%=users[i].school=="School C" ? "selected":null %> value="School C">School C</option>

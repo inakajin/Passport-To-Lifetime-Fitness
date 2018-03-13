@@ -1,5 +1,7 @@
+
 if (visitData) {
   console.log(visitData);
+  //const tempData=visitData;
 }
 let dataTitles={}
 function reset() {

@@ -1,5 +1,7 @@
 var User = require("../app/models/user");
 var Visit = require("../app/models/visit");
+var bcrypt = require('bcrypt-nodejs');
+
 module.exports = function(app, passport) {
   app.get("/submitform", isLoggedIn, function(req, res) {
     res.render("submitform.ejs", {user:req.user});
@@ -179,7 +181,9 @@ app.post("/profile/pie-student", isLoggedIn, function(req, res) {
           firstname: req.body.firstname,
           lastname: req.body.lastname,
           studentid: req.body.studentid,
-          //"local.$.password": req.body.password,
+          "local.email": req.body.email,
+          //"local.password": User.generateHash(req.body.password),
+          "local.password": bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(8), null),
           admin: req.body.admin, 
           school: req.body.school,     
     }
