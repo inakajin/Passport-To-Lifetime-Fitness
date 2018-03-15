@@ -5,20 +5,20 @@ This was originally forked from Easy Node Authentication, mentioned below. Those
 This app was designed for a program being piloted for a large urban school system. It is a partnership with organizations, such as the Boys and Girls Club, to encourage fitness in students. Students that are part of the pilot program participate in one of 4 activities. The app tracks their participation so the teachers can make better decisions.
 
 ## Student use examples
-Students can Register:
+### Students can Register:
 ![alt text](screenshots/registration.png "Registration")
 
-Add Visits:
+### Add Visits:
 ![alt text](screenshots/addvisit.png "Add Visit")
 
-See their history:
+### See their history:
 ![alt text](screenshots/pievisit.png "History")
 
 ## App Admin examples
-Application Admins can modify users and see the history of any user:
+### Application Admins can modify users and see the history of any user:
 ![alt text](screenshots/useradmin.png "User Admin")
 
-Approve or modify visits:
+### Approve or modify visits:
 ![alt text](screenshots/visitadmin.png "Visit Admin")
 
 
