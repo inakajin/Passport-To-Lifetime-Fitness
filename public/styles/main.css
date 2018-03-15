@@ -148,7 +148,6 @@ footer {
   align-items: center;
   border: 0px;
   margin: 0px;
-  /*width: 100%;*/
   min-width: 100%;
   max-width: 100%;
   position: fixed;
@@ -242,7 +241,6 @@ footer {
 }
 
 .tab-buttons button {
-  /* width:20%;*/
   width: 150px;
   margin: 10px;
   margin-bottom: 0;
@@ -376,6 +374,7 @@ form.searchform button:hover {
 }
 
 button.modifyuser,
+button.reload-data,
 button.approveuser,
 button.addvisit,
 button.validatevisit,
@@ -415,6 +414,13 @@ input.submit-visit {
   width: 25%;
   height: auto;
   font-size: 20px;
+}
+
+.modify-user input[type=submit] {
+  background-color: #006600;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 6px;
 }
 
 .login-container {

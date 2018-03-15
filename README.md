@@ -8,6 +8,18 @@ This app was designed for a program being piloted for a large urban school syste
 Students can Register:
 ![alt text](screenshots/register.png "Registration")
 
+Add Visits:
+![alt text](screenshots/addvisit.png "Add Visit")
+
+See their history:
+![alt text](screenshots/pievisit.png "History")
+
+## App Admin examples
+Application Admins can modify users and see the history of any user:
+![alt text](screenshots/useradmin.png "User Admin")
+
+Approve or modify visits:
+![alt text](screenshots/visitadmin.png "Visit Admin")
 
 
 # Easy Node Authentication

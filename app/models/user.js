@@ -14,11 +14,10 @@ var userSchema = mongoose.Schema({
         type: Boolean,
         default: false
     },
-    //studentid: Number,
+    
     local            : {
         email        : String,
         password     : String,
-        //admin        : Boolean,
     }
 });
 
