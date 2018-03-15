@@ -6,7 +6,7 @@ This app was designed for a program being piloted for a large urban school syste
 
 ## Student use examples
 Students can Register:
-![alt text](screenshots/register.png "Registration")
+![alt text](screenshots/registration.png "Registration")
 
 Add Visits:
 ![alt text](screenshots/addvisit.png "Add Visit")
