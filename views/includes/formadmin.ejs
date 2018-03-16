@@ -1,0 +1,20 @@
+    
+    <container class="schools-container">
+        
+        <form class="schoolform" action="/profile/addschool" method="post">
+            School: <input type="text" name="school">
+            <input type="submit" value="Add School">
+          </form>
+          <br>
+          <% for(var j=0; j < schools.length; j++) { %>
+           <ul class="schoollist" data-id="<%= schools[j]._id %>">
+            <li>
+            School: <%= schools[j].school %>
+            </li>
+            <button class="deleteschool" aria-label="This deletes the school.">Remove</button>
+            
+            </ul>
+            <% } %>
+
+    </container>
+    

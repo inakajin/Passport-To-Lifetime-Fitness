@@ -1,9 +1,5 @@
 
 <% if (users) { %>
-<!--    <p>Type something in the input field to search the table for first names, last names or emails:</p>  
-<input class="myInput" type="text" placeholder="Search..">-->
-
-
 
     <container class="userlist-container">
     <div class="row">
@@ -63,13 +59,12 @@
                         <input type="password" name="password" value="<%= users[i].local.password %>">
                         <br> Please select your school:
                         <br>
-                        <%=users[i].school %>
+                        
                         <select name="schools" class="schools">
-                            <option <%=users[i].school=="School A" ? "selected":null %> value="School A">School A</option>
-                            <option <%=users[i].school=="School B" ? "selected":null %> value="School B">School B</option>
-                            <option <%=users[i].school=="School C" ? "selected":null %> value="School C">School C</option>
-                            <option <%=users[i].school=="School D" ? "selected":null %> value="School D">School D</option>
-                            <option <%=users[i].school=="School E" ? "selected":null %> value="School E">School E</option>
+                                <% for(var j=0; j < schools.length; j++) { %>
+                                    schools[j].school
+                                    <option <%=users[i].school=="schools[j].school" ? "selected":null %> value="<%= schools[j].school %>"><%= schools[j].school %></option>
+                                <% } %>
                         </select>
                         <br>
                         

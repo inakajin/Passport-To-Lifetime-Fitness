@@ -91,7 +91,7 @@ body {
   padding-bottom: 100px;
 }
 
-.userlist {
+.userlist, .schoollist {
   list-style: none;
   color: black;
   font-weight: bold;
@@ -362,7 +362,7 @@ form.searchform button:hover {
   display: none;
 }
 
-.modify-user {
+.modify-user, .schoolform {
   border: 1px solid black;
   padding: 3px;
   margin: 3px;
@@ -388,6 +388,7 @@ button.pie-student,
 
 button.deleteuser,
 button.deletevisit,
+button.deleteschool,
 button.cancel-update {
   background-color: orangered;
   color: white;
@@ -417,6 +418,13 @@ input.submit-visit {
 }
 
 .modify-user input[type=submit] {
+  background-color: #006600;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 6px;
+}
+
+.schools-container input[type=submit] {
   background-color: #006600;
   color: white;
   font-family: "Montserrat", sans-serif;

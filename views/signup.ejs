@@ -45,11 +45,11 @@
                         <div class="form-group">
                             <label>Please select your school:</label>
                             <select name="school">
-                                <option value="School A">School A</option>
-                                <option value="School B">School B</option>
-                                <option value="School C">School C</option>
-                                <option value="School D">School D</option>
-                                <option value="School E">School E</option>
+                                
+                                <% for(var i=0; i < schools.length; i++) { %>
+                                    <option value="<%= schools[i].school %>"><%= schools[i].school %></option>
+                                
+                               <% } %>
                             </select>
                         </div>
                         <br>

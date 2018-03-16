@@ -40,6 +40,16 @@ $("button.deleteuser").click(function(e) {
   });
 });
 
+//School deletion button logic
+$("button.deleteschool").click(function(e) {
+  //let id=$(this).parent().data('userid');
+  let id = $(this)
+    .closest("ul")
+    .data("school");
+  console.log(id);
+ 
+});
+
 //View specific students visit history
 
 $("button.pie-student").click(function(e) {

@@ -1,5 +1,6 @@
 var User = require("../app/models/user");
 var Visit = require("../app/models/visit");
+var School = require("../app/models/school");
 var bcrypt = require("bcrypt-nodejs");
 
 module.exports = function(app, passport) {
@@ -117,13 +118,20 @@ module.exports = function(app, passport) {
         Visit.find(query)
           .exec()
           .then(visits => {
-            
-            res.render("profile.ejs", {
-              user: req.user,
-              visits: visits.reverse(),
-              admin: admin,
-              users: users
-            });
+            School.find()
+            .exec()
+            .then(schools => {
+              res.render("profile.ejs", {
+                user: req.user,
+                visits: visits.reverse(),
+                admin: admin,
+                users: users,
+                schools: schools
+              });
+            })
+            .catch(err => {
+              throw err;
+            }); 
           })
           .catch(err => {
             throw err;
@@ -185,7 +193,7 @@ module.exports = function(app, passport) {
 
   //This allows an admin to update a user profile
   app.post("/profile/updateuser", isLoggedIn, function(req, res) {
-    console.log(req.body, "Mickey", req.params, req.query);
+    console.log(req.body, req.params, req.query);
     User.update(
       { _id: req.body.id },
       {
@@ -208,6 +216,24 @@ module.exports = function(app, passport) {
         res.json({ success: true });
       }
     );
+  });
+
+//This allows an admin to add a school
+  app.post("/profile/addschool", isLoggedIn, function(req, res) {
+    console.log(req.body, req.params, req.query);
+    let school = new School(req.body)
+    school.save(function(err) {
+      res.redirect("/profile");
+    });
+  })
+
+//This allows an admin to delete a school
+  app.post("/profile/deleteschool", isLoggedIn, function(req, res) {
+    console.log(req.body);
+    School.remove({ _id: req.body.id }, function(error, doc) {
+      console.log(doc, error, " removed");
+      res.json({ success: true });
+    });
   });
 
   // LOGOUT ==============================
@@ -240,7 +266,14 @@ module.exports = function(app, passport) {
   // SIGNUP =================================
   // show the signup form
   app.get("/signup", function(req, res) {
-    res.render("signup.ejs", { message: req.flash("signupMessage") });
+    
+    School.find().exec()
+    .then(schools=>{
+      res.render("signup.ejs", { schools:schools, message: req.flash("signupMessage") });
+    })
+    .catch(err => {
+      throw err;
+    });
   });
 
   // process the signup form
