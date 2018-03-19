@@ -5,7 +5,6 @@ $("input[name='activitylist']").change(function(e) {
 
 //Visit approval button logic
 $(".approvevisit").click(function(e) {
-  //console.log("Approval Test")
   $.post("", function(data, status) {
     console.log("Data: " + data + "\nStatus: " + status);
     if (data.success) {
@@ -16,7 +15,6 @@ $(".approvevisit").click(function(e) {
 
 //User approval button logic
 $("button.approveuser").click(function(e) {
-  //let id=$(this).parent().data('userid');
   let id = $(this)
     .closest("ul")
     .data("userid");
@@ -42,18 +40,18 @@ $("button.deleteuser").click(function(e) {
 
 //School deletion button logic
 $("button.deleteschool").click(function(e) {
-  //let id=$(this).parent().data('userid');
   let id = $(this)
     .closest("ul")
     .data("school");
+    $.post("/profile/deleteschool", { id: id}, function(data, status) {
+      console.log(data);
+    })
   console.log(id);
  
 });
 
 //View specific students visit history
-
 $("button.pie-student").click(function(e) {
-    //$(document).on('click', 'button.pie-student', function(e) {
     let id = $(this)
         .closest("ul")
         .data("userid");
@@ -62,31 +60,24 @@ $("button.pie-student").click(function(e) {
             console.log(el)
             return el.userid == id
     })
-    reset()
-  console.log(visitData)  
-//    visitData = JSON.stringify(visitData)
-console.log(visitData);
+    reset()  
+  console.log(visitData);
     change(
         constructData(
-//          JSON.parse(visitData),
         visitData,
           dataTitles["activitylist"],
           "activitylist"
         )
       );
-//reset()
     console.log(visitData)
 });
 
 //Reset to original pie-data
 $("button.reload-data").click(function(e) {
 reset()
-console.log(visitData)  
-//visitData = JSON.stringify(visitData)
 console.log(visitData);
   change(
       constructData(
-        //JSON.parse(visitData),
         JSON.parse(tempData),
         dataTitles["activitylist"],
         "activitylist"
@@ -144,8 +135,6 @@ $("form.modify-user").submit(function(e) {
     }
     
   });
-  //window.school = this
-  //  console.log($(this).closest("form").find('.schools').val());
   values['school']=$(this).closest("form").find('.schools').val();
     console.log (JSON.stringify(values));
   let id = $(this)

@@ -1,7 +1,7 @@
 // load the things we need
 var mongoose = require('mongoose');
 
-// define the schema for our user model
+// define the schema for our visit model
 var visitSchema = mongoose.Schema({
     userid: String,
     firstname: String, 
@@ -20,5 +20,5 @@ var visitSchema = mongoose.Schema({
 });
 
 
-// create the model for users and expose it to our app
+// create the model for visits and expose it to our app
 module.exports = mongoose.model('Visit', visitSchema);

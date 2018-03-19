@@ -1,6 +1,7 @@
 var User = require("../app/models/user");
 var Visit = require("../app/models/visit");
 var School = require("../app/models/school");
+var Activity = require("../app/models/activity");
 var bcrypt = require("bcrypt-nodejs");
 
 module.exports = function(app, passport) {
@@ -121,12 +122,16 @@ module.exports = function(app, passport) {
             School.find()
             .exec()
             .then(schools => {
+              Activity.find()
+              .exec()
+              .then(activities => {
               res.render("profile.ejs", {
                 user: req.user,
                 visits: visits.reverse(),
                 admin: admin,
                 users: users,
-                schools: schools
+                schools: schools,
+                activities: activities
               });
             })
             .catch(err => {
@@ -137,6 +142,10 @@ module.exports = function(app, passport) {
             throw err;
           });
       })
+      .catch(err => {
+        throw err;
+      });
+    })
       .catch(err => {
         throw err;
       });
@@ -227,14 +236,23 @@ module.exports = function(app, passport) {
     });
   })
 
+//This allows an admin to add an activity
+app.post("/profile/addactivity", isLoggedIn, function(req, res) {
+  console.log(req.body, req.params, req.query);
+  let activity = new Activity(req.body)
+  activity.save(function(err) {
+    res.redirect("/profile");
+  });
+})
+
 //This allows an admin to delete a school
   app.post("/profile/deleteschool", isLoggedIn, function(req, res) {
     console.log(req.body);
-    School.remove({ _id: req.body.id }, function(error, doc) {
-      console.log(doc, error, " removed");
-      res.json({ success: true });
+    //School.remove({ _id: req.body.id }, function(error, doc) {
+      //console.log(doc, error, " removed");
+      //res.json({ success: true });
     });
-  });
+ // });
 
   // LOGOUT ==============================
   app.get("/logout", function(req, res) {

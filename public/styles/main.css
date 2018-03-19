@@ -389,6 +389,7 @@ button.pie-student,
 button.deleteuser,
 button.deletevisit,
 button.deleteschool,
+button.deleteactivity,
 button.cancel-update {
   background-color: orangered;
   color: white;

@@ -1,6 +1,7 @@
     
     <container class="schools-container">
-        
+        <div class="row">
+            <div class="col-6">
         <form class="schoolform" action="/profile/addschool" method="post">
             School: <input type="text" name="school">
             <input type="submit" value="Add School">
@@ -15,6 +16,25 @@
             
             </ul>
             <% } %>
+        </div>
 
+        <div class="col-6">
+                <form class="schoolform" action="/profile/addactivity" method="post">
+                    Activity: <input type="text" name="activity">
+                    <input type="submit" value="Add Activity">
+                  </form>
+                  <br>
+                  <% for(var j=0; j < activities.length; j++) { %>
+                   <ul class="schoollist" data-id="<%= activities[j]._id %>">
+                    <li>
+                    Activity: <%= activities[j].activity %>
+                    </li>
+                    <button class="deleteactivity" aria-label="This deletes the activity.">Remove</button>
+                    
+                    </ul>
+                    <% } %>
+                </div>
+
+        </div>
     </container>
     
