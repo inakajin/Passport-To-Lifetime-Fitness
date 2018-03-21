@@ -21,7 +21,17 @@ module.exports = function(app, passport) {
 
   //This is the logic to retrieve the form to use to submit a visit
   app.get("/submitform/:id", isLoggedIn, function(req, res) {
-    res.render("submitform.ejs", { user: req.user });
+    Activity.find()
+              .exec()
+              .then(activities => {
+                res.render("submitform.ejs", {
+                  user: req.user,
+                  activities: activities
+                })
+              })
+              .catch(err => {
+                throw err;
+              });
   });
 
   //This is the logic to submit a visit
@@ -247,10 +257,11 @@ module.exports = function(app, passport) {
 
 //This allows an admin to add a school
   app.post("/profile/addschool", isLoggedIn, function(req, res) {
-    console.log(req.body, req.params, req.query);
+    console.log(req.body, req.query);
     let school = new School(req.body)
-    school.save(function(err) {
-      res.redirect("/profile");
+    school.save(function(err, doc) {
+      console.log(doc)
+      res.json(doc);
     });
   })
 

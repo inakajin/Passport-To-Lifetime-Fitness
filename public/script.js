@@ -144,6 +144,23 @@ $("form.activityform").submit(function(e) {
   });
 })
 
+//Add school
+$("form.schoolform").submit(function(e) {
+  e.preventDefault();
+  console.log($('#school').val())
+  let values = {school:$('#school').val()}
+  $.post("/profile/addschool", values, function(data, status) {
+    console.log(data);
+    let html = 
+    `<li data-schoolid=${school._id}>
+        School: ${data.school}
+        <button class="deleteschool" aria-label="This deletes the school.">Remove</button>
+      </li>
+    `
+    $(".schoollist").append(html);
+  });
+})
+
 //User modification form logic
 $("form.modify-user").submit(function(e) {
   e.preventDefault();

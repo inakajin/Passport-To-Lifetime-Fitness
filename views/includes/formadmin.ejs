@@ -3,19 +3,19 @@
         <div class="row">
             <div class="col-6">
         <form class="schoolform" action="/profile/addschool" method="post">
-            School: <input type="text" name="school">
+            School: <input type="text" name="school" id="school">
             <input type="submit" value="Add School">
           </form>
           <br>
+          <ul class="schoollist">
           <% for(var j=0; j < schools.length; j++) { %>
-           <ul class="schoollist" data-schoolid="<%= schools[j]._id %>">
-            <li>
+           <li data-schoolid="<%= schools[j]._id %>">
             School: <%= schools[j].school %>
-            </li>
             <button class="deleteschool" aria-label="This deletes the school.">Remove</button>
+            </li>
             
-            </ul>
             <% } %>
+            </ul>
         </div>
 
         <div class="col-6">
