@@ -8,7 +8,7 @@
           </form>
           <br>
           <% for(var j=0; j < schools.length; j++) { %>
-           <ul class="schoollist" data-id="<%= schools[j]._id %>">
+           <ul class="schoollist" data-schoolid="<%= schools[j]._id %>">
             <li>
             School: <%= schools[j].school %>
             </li>
@@ -19,22 +19,21 @@
         </div>
 
         <div class="col-6">
-                <form class="schoolform" action="/profile/addactivity" method="post">
-                    Activity: <input type="text" name="activity">
+                <form class="activityform" action="/profile/addactivity" method="post">
+                    Activity: <input type="text" name="activity" id="activity">
                     <input type="submit" value="Add Activity">
                   </form>
                   <br>
+                  <ul class="activitylist">
                   <% for(var j=0; j < activities.length; j++) { %>
-                   <ul class="schoollist" data-id="<%= activities[j]._id %>">
-                    <li>
+                   <li data-activityid="<%= activities[j]._id %>">
                     Activity: <%= activities[j].activity %>
-                    </li>
                     <button class="deleteactivity" aria-label="This deletes the activity.">Remove</button>
+                    </li>
                     
-                    </ul>
                     <% } %>
+                </ul>
                 </div>
-
         </div>
     </container>
     

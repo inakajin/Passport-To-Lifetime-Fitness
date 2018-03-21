@@ -28,7 +28,6 @@ $("button.approveuser").click(function(e) {
 
 //User deletion button logic
 $("button.deleteuser").click(function(e) {
-  //let id=$(this).parent().data('userid');
   let id = $(this)
     .closest("ul")
     .data("userid");
@@ -41,14 +40,27 @@ $("button.deleteuser").click(function(e) {
 //School deletion button logic
 $("button.deleteschool").click(function(e) {
   let id = $(this)
-    .closest("ul")
-    .data("school");
+    .closest("li")
+    .data("schoolid");
+    console.log(id)
     $.post("/profile/deleteschool", { id: id}, function(data, status) {
       console.log(data);
-    })
-  console.log(id);
- 
+      $(`[data-schoolid="${id}"]`).remove(); 
+    });
 });
+
+//Activity deletion button logic
+$("button.deleteactivity").click(function(e) {
+  let id = $(this)
+    .closest("li")
+    .data("activityid");
+    console.log(id)
+    $.post("/profile/deleteactivity", { id: id}, function(data, status) {
+      console.log(data);
+      $(`[data-activityid="${id}"]`).remove(); 
+    });
+});
+
 
 //View specific students visit history
 $("button.pie-student").click(function(e) {
@@ -87,7 +99,6 @@ console.log(visitData);
 
 //Visit deletion button logic
 $("button.deletevisit").click(function(e) {
-  //let id=$(this).parent().data('userid');
   let par = $(this).closest("ul");
   let id = par.data("visitid");
   console.log(id);
@@ -115,6 +126,23 @@ $("button.cancel-update").click(function(e) {
     .parent()
     .toggleClass("hide");
 });
+
+//Add activity
+$("form.activityform").submit(function(e) {
+  e.preventDefault();
+  console.log($('#activity').val())
+  let values = {activity:$('#activity').val()}
+  $.post("/profile/addactivity", values, function(data, status) {
+    console.log(data);
+    let html = 
+    `<li data-activityid=${data._id}>
+        Activity: ${data.activity}
+        <button class="deleteactivity" aria-label="This deletes the activity.">Remove</button>
+      </li>
+    `
+    $(".activitylist").append(html);
+  });
+})
 
 //User modification form logic
 $("form.modify-user").submit(function(e) {

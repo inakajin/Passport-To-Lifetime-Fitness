@@ -17,7 +17,11 @@
                 <br> Please select the activity you participated in today:
                 <br>
                
-           
+                <% for(var i=0; i < activities.length; i++) { %>
+                    <label>
+                        <input type="radio" name="activitylist" value="<%= activities[i].activity %>" /><%= activities[i].activity %> 
+                    </label>
+                    <% } %>
 
                 <label>
                     <input type="radio" name="activitylist" value="basketball" />Basketball

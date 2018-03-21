@@ -20,24 +20,18 @@
 
             <div class="notification">
 
-
+                    <%=visit.activitylist %>
 
                 <form action="" method="POST">
                     <br>
                     <br> Please select the activity you participated in today:
                     <br>
-                    <label>
-                        <input type="radio" name="activitylist" value="basketball" <%=visit.activitylist=="basketball" ? "checked" : "" %>/>Basketball
-                    </label>
-                    <label>
-                        <input type="radio" name="activitylist" value="yoga" <%=visit.activitylist=="yoga" ? "checked" : "" %>/>Yoga
-                    </label>
-                    <label>
-                        <input type="radio" name="activitylist" value="swimming" <%=visit.activitylist=="swimming" ? "checked" : "" %>/>Swimming
-                    </label>
-                    <label>
-                        <input type="radio" name="activitylist" value="martial arts" <%=visit.activitylist=="martial arts" ? "checked" : "" %>/>Martial Arts
-                    </label>
+                    <% for(var i=0; i < activities.length; i++) { %>
+                        <label>
+                            <input type="radio" name="activitylist" value="<%= activities[i].activity %>" <%= visit.activitylist==activities[i].activity ? "checked" : "" %>/><%= activities[i].activity %> 
+                        </label>
+                        <% } %>
+                    
                     <br>
                     <br>
                     <h3>Pre-session:</h3>

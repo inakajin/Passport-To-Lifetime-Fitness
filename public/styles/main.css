@@ -91,7 +91,7 @@ body {
   padding-bottom: 100px;
 }
 
-.userlist, .schoollist {
+.userlist, .schoollist, .activitylist li {
   list-style: none;
   color: black;
   font-weight: bold;
@@ -101,6 +101,10 @@ body {
   margin: 20px;
   font-size: 16px;
   font-family: "Montserrat", sans-serif;
+}
+
+.activitylist li button {
+  display: block;
 }
 
 html,
@@ -362,7 +366,7 @@ form.searchform button:hover {
   display: none;
 }
 
-.modify-user, .schoolform {
+.modify-user, .schoolform, .activityform {
   border: 1px solid black;
   padding: 3px;
   margin: 3px;

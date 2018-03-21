@@ -6,7 +6,17 @@ var bcrypt = require("bcrypt-nodejs");
 
 module.exports = function(app, passport) {
   app.get("/submitform", isLoggedIn, function(req, res) {
-    res.render("submitform.ejs", { user: req.user });
+    Activity.find()
+              .exec()
+              .then(activities => {
+                res.render("submitform.ejs", {
+                  user: req.user,
+                  activities: activities
+                })
+              })
+              .catch(err => {
+                throw err;
+              });
   });
 
   //This is the logic to retrieve the form to use to submit a visit
@@ -50,10 +60,18 @@ module.exports = function(app, passport) {
     Visit.findOne({ _id: req.params.id })
       .exec()
       .then(visit => {
-        res.render("visit.ejs", {
-          user: req.user,
-          visit: visit
-        });
+        Activity.find()
+              .exec()
+              .then(activities => {
+                res.render("visit.ejs", {
+                  user: req.user,
+                  visit: visit,
+                  activities: activities
+                });
+              })
+              .catch(err => {
+                throw err;
+              });     
       })
       .catch(err => {
         throw err;
@@ -238,21 +256,32 @@ module.exports = function(app, passport) {
 
 //This allows an admin to add an activity
 app.post("/profile/addactivity", isLoggedIn, function(req, res) {
-  console.log(req.body, req.params, req.query);
+  console.log(req.body, req.query);
   let activity = new Activity(req.body)
-  activity.save(function(err) {
-    res.redirect("/profile");
+  activity.save(function(err, doc) {
+    console.log(doc)
+   res.json(doc);
   });
 })
 
 //This allows an admin to delete a school
   app.post("/profile/deleteschool", isLoggedIn, function(req, res) {
     console.log(req.body);
-    //School.remove({ _id: req.body.id }, function(error, doc) {
-      //console.log(doc, error, " removed");
-      //res.json({ success: true });
+    School.remove({ _id: req.body.id }, function(error, doc) {
+      console.log(doc, error, " removed");
+      res.json({ success: true });
     });
- // });
+ })
+
+//This allows an admin to delete an activity
+app.post("/profile/deleteactivity", isLoggedIn, function(req, res) {
+  console.log(req.body);
+  Activity.remove({ _id: req.body.id }, function(error, doc) {
+    console.log(doc, error, " removed");
+    res.json({ success: true });
+  });
+})
+
 
   // LOGOUT ==============================
   app.get("/logout", function(req, res) {
