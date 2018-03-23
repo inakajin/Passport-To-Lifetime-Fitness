@@ -16,20 +16,18 @@
         </p>
         <p><span id="value">100</span></p>
     </div>    
-  <div id="graph">
-    <!-- <li> <%= data %> </li> -->
-    <script>
-       
+    <div id="graph">
+      <script> 
         var visitData = <%- JSON.stringify(data) %> 
+        var activityData = <%- JSON.stringify(activityData) %>
         const tempData=visitData    
-     </script>
-</div>
+      </script>
+    </div>
 </div>  
   <div id="adjust">
     Duration  <input type="textbox" id="duration"  value="500"> in milliseconds
     <br>
-    <button class="randomize">New Data</button> 
-    
+    <button class="randomize">New Data</button>   
   </div>
 </div>
 <script src="../piechart.js"></script>

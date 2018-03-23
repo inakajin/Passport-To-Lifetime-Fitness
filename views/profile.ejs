@@ -26,7 +26,8 @@
                     </p>
                 </div>
                 <% if (visits) { %>
-                    <% data= JSON.stringify(visits) %>
+                    <% data = JSON.stringify(visits) %>
+                    <% activityData = JSON.stringify(activities) %>
                         <% include includes/piechart.ejs %>
                             <% } %>
 

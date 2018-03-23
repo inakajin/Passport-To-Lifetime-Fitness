@@ -218,14 +218,21 @@ module.exports = function(app, passport) {
     Visit.find()
       .exec()
       .then(visits => {
-        
-        res.render("includes/piechart.ejs", {
-          data: "hello"
-        });
-      })
+        Activity.find()
+              .exec()
+              .then(activities => {               
+                res.render("includes/piechart.ejs", {
+                  activities: activities,
+                  //data: "hello"
+          });
+        })
       .catch(err => {
         throw err;
       });
+    })
+    .catch(err => {
+      throw err;
+    });
   });
 
   //This allows an admin to update a user profile
@@ -349,17 +356,17 @@ app.post("/profile/deleteactivity", isLoggedIn, function(req, res) {
   // =============================================================================
 
   // locally --------------------------------
-  app.get("/connect/local", function(req, res) {
-    res.render("connect-local.ejs", { message: req.flash("loginMessage") });
-  });
-  app.post(
-    "/connect/local",
-    passport.authenticate("local-signup", {
-      successRedirect: "/profile", // redirect to the secure profile section
-      failureRedirect: "/connect/local", // redirect back to the signup page if there is an error
-      failureFlash: true // allow flash messages
-    })
-  );
+  //app.get("/connect/local", function(req, res) {
+  //  res.render("connect-local.ejs", { message: req.flash("loginMessage") });
+  //});
+  //app.post(
+  //  "/connect/local",
+  //  passport.authenticate("local-signup", {
+  //    successRedirect: "/profile", // redirect to the secure profile section
+  //    failureRedirect: "/connect/local", // redirect back to the signup page if there is an error
+  //    failureFlash: true // allow flash messages
+  //  })
+  //);
 
   // =============================================================================
   // UNLINK ACCOUNTS =============================================================

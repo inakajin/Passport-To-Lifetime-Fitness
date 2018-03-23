@@ -2,38 +2,36 @@
     <container class="schools-container">
         <div class="row">
             <div class="col-6">
-        <form class="schoolform" action="/profile/addschool" method="post">
-            School: <input type="text" name="school" id="school">
-            <input type="submit" value="Add School">
-          </form>
-          <br>
-          <ul class="schoollist">
-          <% for(var j=0; j < schools.length; j++) { %>
-           <li data-schoolid="<%= schools[j]._id %>">
-            School: <%= schools[j].school %>
-            <button class="deleteschool" aria-label="This deletes the school.">Remove</button>
-            </li>
-            
-            <% } %>
-            </ul>
-        </div>
+                <form class="schoolform" action="/profile/addschool" method="post">
+                    School: <input type="text" name="school" id="school">
+                    <input type="submit" value="Add School">
+                </form>
+                <br>
+                <ul class="schoollist">
+                    <% for(var j=0; j < schools.length; j++) { %>
+                    <li data-schoolid="<%= schools[j]._id %>">
+                        School: <%= schools[j].school %>
+                        <button class="deleteschool" aria-label="This deletes the school.">Remove</button>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
 
-        <div class="col-6">
+            <div class="col-6">
                 <form class="activityform" action="/profile/addactivity" method="post">
                     Activity: <input type="text" name="activity" id="activity">
                     <input type="submit" value="Add Activity">
-                  </form>
+                </form>
                   <br>
                   <ul class="activitylist">
-                  <% for(var j=0; j < activities.length; j++) { %>
-                   <li data-activityid="<%= activities[j]._id %>">
-                    Activity: <%= activities[j].activity %>
-                    <button class="deleteactivity" aria-label="This deletes the activity.">Remove</button>
+                    <% for(var j=0; j < activities.length; j++) { %>
+                    <li data-activityid="<%= activities[j]._id %>">
+                        Activity: <%= activities[j].activity %>
+                        <button class="deleteactivity" aria-label="This deletes the activity.">Remove</button>
                     </li>
-                    
                     <% } %>
                 </ul>
-                </div>
+            </div>
         </div>
     </container>
     

@@ -5,10 +5,8 @@
     width: 100%;
     height: 560px;
     position: relative;
-    //background-color: #333;
-    /*border: 2px solid gray;*/
+    background-color: #333;
     margin: 50px auto;
-   /* padding: 10px;*/
   }
 
 .parsing-buttons {
@@ -23,7 +21,6 @@
     color: white;
     background-color: #008CBA;
     border: 1px solid gray;
-    /*border-radius: 12px;*/
     box-shadow: 3px 3px 3px grey;
     outline: none;
 }
@@ -36,13 +33,7 @@
     box-shadow: 3px 6px 3px grey;
 }
 
-
-
-  .pie-parent {
-    
-  }
-
-  .pie-card {
+.pie-card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     
@@ -52,30 +43,26 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-#graph {
-   /* border-radius: 5px 5px 0 0;
-    padding-top: 50px;
-    margin: 25px auto 0;*/
-    
+#graph { 
     height: 100%;
     background-color: #fff;
   }
-  #graph svg {
+#graph svg {
     width: 80vw !important;
   }
-  #graph .slice {
+#graph .slice {
     stroke: white;
     stroke-width: 5px;
   }
-  #graph .slice:hover {
+#graph .slice:hover {
     opacity: .5;
   }
-  #graph .labels text {
+#graph .labels text {
     background-color: #333;
     width: 200px;
   }
   
-  #adjust {
+#adjust {
     display:none;
     outline: transparent;
     padding: 25px 0;
@@ -84,7 +71,8 @@
     line-height: 50px;
     box-shadow: 0px 4px 6px #000;
   }
-  #adjust button {
+
+#adjust button {
     padding: 10px 20px;
     text-transform: uppercase;
     letter-spacing: 5px;
@@ -95,13 +83,16 @@
     font: 10px "avenir";
     cursor: pointer;
   }
-  #adjust button:focus {
+
+#adjust button:focus {
     outline: none;
   }
-  #adjust button:hover {
+
+#adjust button:hover {
     background: #222;
   }
-  #adjust input {
+
+#adjust input {
     font-size: 18px;
     padding: 10px;
     width: 50px;
@@ -109,21 +100,20 @@
     color: #30AD63;
   }
   
-  svg {
+svg {
     width: 100%;
     height: 100%;
   }
   
-  path.slice {
+path.slice {
     stroke-width: 5px;
   }
   
-  polyline {
+polyline {
     stroke: #333;
     stroke-width: 1px;
     fill: none;
-  }
-  
+  }  
 
 #tooltip {
     position: absolute;
@@ -139,9 +129,11 @@
     box-shadow: 4px 4px 10px rbga(0, 0, 0, 0.4) pointer-events: none;
     opacity: 0;
 }
+
 #tooltip.hidden {
     opacity: 0;
 }
+
 #tooltip p {
     margin: 0;
     font-family: sans-serif;

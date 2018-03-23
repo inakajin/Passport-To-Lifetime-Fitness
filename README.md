@@ -22,6 +22,10 @@ This app was designed for a program being piloted for a large urban school syste
 ![alt text](screenshots/visitadmin.png "Visit Admin")
 
 
+### Add and remove schools and activities
+![alt text](screenshots/formadmin.png "Visit Admin")
+
+
 # Easy Node Authentication
 
 Code for the entire scotch.io tutorial series: Complete Guide to Node Authentication

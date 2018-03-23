@@ -1,34 +1,43 @@
 
 if (visitData) {
   console.log(visitData);
-  //const tempData=visitData;
 }
+
 let dataTitles={}
+//console.log(activityData)
+//console.log(JSON.parse(activityData))
+//activityData = JSON.parse(activityData)
+let aData = JSON.parse(activityData)
+let visData = JSON.parse(visitData)
 function reset() {
-let activitylist = [
-  { label: "basketball", value: 0 },
-  { label: "swimming", value: 0 },
-  { label: "yoga", value: 0 },
-  { label: "martial arts", value: 0 }
-];
+  
+
+let activitylist = []
+  for (let x=0; x < aData.length; x++) {
+  activitylist.push({ label: aData[x].activity, value: 0 })
+    }
+
 let presession = [
   { label: "great", value: 0 },
   { label: "good", value: 0 },
   { label: "ok", value: 0 },
   { label: "ill", value: 0 }
 ];
+
 let health = [
   { label: "very good", value: 0 },
   { label: "good", value: 0 },
   { label: "bad", value: 0 },
   { label: "very bad", value: 0 }
 ];
+
 let postsession = [
   { label: "strongly agree", value: 0 },
   { label: "agree", value: 0 },
   { label: "disagree", value: 0 },
   { label: "strongly disagree", value: 0 }
 ];
+
 let approved = [{ label: "true", value: 0 }, { label: "false", value: 0 }];
 dataTitles = {
   activitylist: activitylist,
@@ -38,22 +47,22 @@ dataTitles = {
   approved: approved
 };
 }
-reset()
-function constructData(visitData, data, dataTitle) {
-  visitData.forEach(function(visit) {
-    console.log(visit[dataTitle]);
-    console.log(visit);
-    console.log(dataTitle);
+reset() //on load
+function constructData(vData, data, dataTitle) {
+  vData.forEach(function(visit) {
+    //console.log(visit[dataTitle]);
+    //console.log(visit);
+    //console.log(dataTitle);
 
     for (var i = 0; i < data.length; i++) {
-      console.log(data[i]);
+      //console.log(data[i]);
       if (String(visit[dataTitle]) == data[i].label) {
         data[i].value++;
       }
     }
   });
 
-  console.log(data);
+  //console.log(data);
   return data;
 }
 var width = 960,
@@ -132,11 +141,9 @@ function randomData() {
     });
 }
 
-//let dummyData = [{label:"apple", value:0},{label:"banana", value:.8},{label:"coconut", value:.9}]
-//let data=[{label:"basketball", value:1}, {label:"swimming", value:2}, {label:"yoga", value:3}, {label:"martial arts", value:5}]
 change(
   constructData(
-    JSON.parse(visitData),
+    visData,
     dataTitles["activitylist"],
     "activitylist"
   )
@@ -145,8 +152,11 @@ change(
 d3.selectAll(".toggledata").on("click", function() {
   //console.log(this.data-type);
   let type = $(this).data("type");
-  console.log(dataTitles[type]);
-  change(constructData(JSON.parse(visitData), dataTitles[type], type));
+  //console.log(dataTitles[type]);
+  //activityData = JSON.parse(activityData)
+  reset();
+  change(constructData(visData, dataTitles[type], type));
+  //console.log(JSON.parse(visitData));
   //change(randomData());
 });
 

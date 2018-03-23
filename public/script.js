@@ -67,34 +67,35 @@ $("button.pie-student").click(function(e) {
     let id = $(this)
         .closest("ul")
         .data("userid");
-        console.log(visitData)
-        visitData=JSON.parse(tempData).filter(function (el) {
+        console.log(visData)
+        visData=JSON.parse(tempData).filter(function (el) {
             console.log(el)
             return el.userid == id
     })
     reset()  
-  console.log(visitData);
+  console.log(visData);
     change(
         constructData(
-        visitData,
+        visData,
           dataTitles["activitylist"],
           "activitylist"
         )
       );
-    console.log(visitData)
+    console.log(visData)
 });
 
 //Reset to original pie-data
 $("button.reload-data").click(function(e) {
-reset()
-console.log(visitData);
-  change(
-      constructData(
-        JSON.parse(tempData),
-        dataTitles["activitylist"],
-        "activitylist"
-      )
-    );
+//reset()
+//console.log(visData);
+//  change(
+//      constructData(
+//        JSON.parse(tempData),
+//        dataTitles["activitylist"],
+//        "activitylist"
+//      )
+//    );
+window.location.reload()
 })
 
 //Visit deletion button logic
