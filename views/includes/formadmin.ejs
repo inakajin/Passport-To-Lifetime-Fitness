@@ -24,9 +24,9 @@
                 </form>
                   <br>
                   <ul class="activitylist">
-                    <% for(var j=0; j < activities.length; j++) { %>
-                    <li data-activityid="<%= activities[j]._id %>">
-                        Activity: <%= activities[j].activity %>
+                    <% for(var z=0; z < activities.length; z++) { %>
+                    <li data-activityid="<%= activities[z]._id %>">
+                        Activity: <%= activities[z].activity %>
                         <button class="deleteactivity" aria-label="This deletes the activity.">Remove</button>
                     </li>
                     <% } %>

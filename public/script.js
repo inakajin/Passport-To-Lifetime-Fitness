@@ -86,15 +86,6 @@ $("button.pie-student").click(function(e) {
 
 //Reset to original pie-data
 $("button.reload-data").click(function(e) {
-//reset()
-//console.log(visData);
-//  change(
-//      constructData(
-//        JSON.parse(tempData),
-//        dataTitles["activitylist"],
-//        "activitylist"
-//      )
-//    );
 window.location.reload()
 })
 
@@ -142,6 +133,7 @@ $("form.activityform").submit(function(e) {
       </li>
     `
     $(".activitylist").append(html);
+    $('#activity').val('');
   });
 })
 
@@ -159,6 +151,7 @@ $("form.schoolform").submit(function(e) {
       </li>
     `
     $(".schoollist").append(html);
+    $('#school').val('');
   });
 })
 

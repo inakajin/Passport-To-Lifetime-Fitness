@@ -278,7 +278,7 @@ app.post("/profile/addactivity", isLoggedIn, function(req, res) {
   let activity = new Activity(req.body)
   activity.save(function(err, doc) {
     console.log(doc)
-   res.json(doc);
+    res.json(doc);
   });
 })
 
@@ -356,6 +356,7 @@ app.post("/profile/deleteactivity", isLoggedIn, function(req, res) {
   // =============================================================================
 
   // locally --------------------------------
+  //This is not needed for current model but would be should social accounts be linked
   //app.get("/connect/local", function(req, res) {
   //  res.render("connect-local.ejs", { message: req.flash("loginMessage") });
   //});
