@@ -8,7 +8,13 @@ The index page contains some "holding text" that the organization will alter whe
 
 ## Link to the heroku deployment
 https://thawing-meadow-87364.herokuapp.com/
+For this deployment, here are some users to test:
+admin1/admin1 - an admin user who can modify users, visits and forms, approve visits, approve new users, and grant users admin privileges.
+admin2/admin2 - an admin user who can modify users, visits and forms, approve visits, approve new users, and grant users admin privileges.
 
+student1/student1, student2/student2, student3/student3 - students who can view their own histories and enter visits for approval.
+
+student4/student4 - a new user not yet approved. They will only see a pending approval message on login. An admin can approve this user at which point they can start adding visits. They will not see a chart for visit history unless some visits are entered.
 ## Student use examples
 ### Students can Register:
 ![alt text](screenshots/registration.png "Registration")
