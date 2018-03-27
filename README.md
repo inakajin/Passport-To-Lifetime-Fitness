@@ -7,7 +7,7 @@ There are a couple things to note:
 The index page contains some "holding text" that the organization will alter when they decide what they want there. They may also include links to various schools and non-profit websites. The design was done to facilitate this. The same applies to the help email in the footer. The organizations will adjust it as needed for their purposes.
 
 ## Link to the heroku deployment
-https://thawing-meadow-87364.herokuapp.com/
+https://passport-fitness.herokuapp.com/
 For this deployment, here are some users to test:
 admin1/admin1 - an admin user who can modify users, visits and forms, approve visits, approve new users, and grant users admin privileges.
 admin2/admin2 - an admin user who can modify users, visits and forms, approve visits, approve new users, and grant users admin privileges.
