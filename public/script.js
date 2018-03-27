@@ -38,7 +38,8 @@ $("button.deleteuser").click(function(e) {
 });
 
 //School deletion button logic
-$("button.deleteschool").click(function(e) {
+//$("button.deleteschool").click(function(e) {
+$('ul.schoollist').on('click', 'button.deleteschool', function(e) {
   let id = $(this)
     .closest("li")
     .data("schoolid");
@@ -50,8 +51,8 @@ $("button.deleteschool").click(function(e) {
 });
 
 //Activity deletion button logic
-$("button.deleteactivity").click(function(e) {
-  let id = $(this)
+$('ul.activitylist').on('click', 'button.deleteactivity', function(e) {  
+    let id = $(this)
     .closest("li")
     .data("activityid");
     console.log(id)
