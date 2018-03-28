@@ -87,6 +87,10 @@ body {
   -ms-transform: translate(-50%, -50%);
 }
 
+.container {
+  width: 100%;
+}
+
 .tab-container {
   padding-bottom: 100px;
 }

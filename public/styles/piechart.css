@@ -13,6 +13,8 @@
     display: flex;
 }
 
+
+
 .parsing-buttons button {
     width:20%;
     margin: 10px;
@@ -23,6 +25,15 @@
     border: 1px solid gray;
     box-shadow: 3px 3px 3px grey;
     outline: none;
+}
+
+@media screen and (max-width: 560px) {
+    .parsing-buttons button {
+        margin: 0px;
+        font-size: 10px;
+        overflow: hidden;
+        padding: 0px;
+    }
 }
 
 .parsing-buttons button:hover {
@@ -36,7 +47,7 @@
 .pie-card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    
+    width: 100%;
 }
 
 .pie-card:hover {
