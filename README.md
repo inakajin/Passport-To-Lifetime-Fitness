@@ -10,7 +10,6 @@ The index page contains some "holding text" that the organization will alter whe
 https://passport-fitness.herokuapp.com/
 For this deployment, here are some users to test:
 admin1@admin.com/admin1 - an admin user who can modify users, visits and forms, approve visits, approve new users, and grant users admin privileges.
-admin2@admin.com/admin2 - an admin user who can modify users, visits and forms, approve visits, approve new users, and grant users admin privileges.
 
 student1@student.com/student1, student2@student.com/student2, student3@student.com/student3 - students who can view their own histories and enter visits for approval.
 

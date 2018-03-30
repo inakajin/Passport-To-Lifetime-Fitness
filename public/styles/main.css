@@ -40,6 +40,50 @@ body {
   padding: 10px;
 }
 
+.landingtext {
+  display: flex;
+  width: 100%;
+  max-width: none;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #999999;
+  padding: 10px;
+}
+
+.explanation.landingtext {
+  font-size: 14px;
+}
+
+.landingtext a {
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #999999;
+}
+
+.explanation.landingtext a {
+  font-size: 14px;
+}
+
+.landingtext a:visited {
+  text-decoration: none;
+}
+.landingtext a:hover {
+  text-decoration: none;
+  color: #008cba;
+}
+.landingtext a:focus {
+  text-decoration: none;
+}
+.landingtext a:hover,
+a:active {
+  text-decoration: none;
+}
+
 .landimg {
   height: 200px;
   width: 100%;
