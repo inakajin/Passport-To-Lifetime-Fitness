@@ -352,6 +352,10 @@ footer {
 .myInput {
   width: 50%;
   border: 1px solid gray;
+  padding-left: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+
 }
 
 .searchbar button {
@@ -436,6 +440,16 @@ button.pie-student,
   color: white;
   font-family: "Montserrat", sans-serif;
   border-radius: 6px;
+}
+
+@media screen and (max-width: 560px) {
+  .reload-data button {
+      margin: 0px;
+      font-size: 8px;
+      overflow: hidden;
+      padding: 0px;
+      
+  }
 }
 
 button.deleteuser,
