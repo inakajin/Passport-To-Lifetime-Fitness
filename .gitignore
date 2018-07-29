@@ -14,3 +14,7 @@ results
 npm-debug.log
 node_modules
 
+.DS_Store
+app/.DS_Store
+public/img/.DS_Store
+views/.DS_Store
